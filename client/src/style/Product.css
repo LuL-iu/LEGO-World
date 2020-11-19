@@ -1,0 +1,65 @@
+.setinfo-container {
+  display: table-cell;
+  /* margin: 10px 0; */
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  text-align: center;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.setinfo-container .name {
+  margin: 5px 0;
+  padding: 10px;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+  font-size: 30px;
+  /* box-sizing: border-box; */
+}
+
+.setinfo-container .frame .image {
+  max-width: 500px;
+  object-fit:cover;
+}
+
+.setinfo-container .year{
+  font-size: 30px;
+  flex: 1 0 20%;
+  margin: 5px 0;
+  padding: 10px;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+  /* box-sizing: border-box; */
+}
+
+.setinfo-container .frame {
+  display: table-cell;
+  width: 500px;
+  height: 500px;
+  background: rgb(255, 255, 255);
+  margin: auto;
+  padding: 10px 10px;
+  text-align: center;
+  vertical-align: middle;
+  bottom: 0px;
+}
+
+.review-container {
+  /* margin: 10px 0; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.review-container .text{
+  font-size: 15px;
+  color: rgb(128, 128, 128);
+}
+
+.h5 {
+  margin: 5px 0;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+  font-size: 30px;
+  /* box-sizing: border-box; */
+}

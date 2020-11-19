@@ -1,0 +1,61 @@
+.sets-container {
+  /* margin: 10px 0; */
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.sets-container .set {
+  display: block;
+  flex: 1 0 30%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+  bottom: 0px;
+  text-align:  left;
+  /* box-sizing: border-box; */
+}
+
+.sets-container .set:hover {
+  background-color: #ddd;
+}
+
+.sets-container .h5 {
+  margin: 5px 0;
+  padding: 10px;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+  font-size: 30px;
+  /* box-sizing: border-box; */
+}
+
+.sets-container .set .frame .image {
+  max-width: 280px;
+  max-height: 280px;
+  object-fit:cover;
+}
+
+.sets-container .set .name .year{
+  flex: 1 0 20%;
+  margin: 5px 0;
+  padding: 10px;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+  /* box-sizing: border-box; */
+}
+
+.sets-container .set .frame {
+  display: table-cell;
+  width: 300px;
+  height: 300px;
+  background: rgb(255, 255, 255);
+  margin: auto;
+  padding: 10px 10px;
+  text-align: center;
+  vertical-align: middle;
+  bottom: 0px;
+}

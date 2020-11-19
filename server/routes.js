@@ -44,7 +44,41 @@ function getMinifigActors(req, res) {
   });
 };
 
+function getSets(req, res) {
+  var query = `
+  SELECT name, set_num, year, image_url 
+  FROM sets 
+  WHERE theme_id = '${req.params.themeID}'
+  ORDER BY name;
+  `;
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+
+function getProductReview(req, res) {
+  var query = `
+    SELECT rating_overall as overall, review, title, author, date
+    FROM  review
+    WHERE set_num = '${req.params.set_num}'
+    ORDER BY date;
+  `;
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+
 // The exported functions, which can be accessed in index.js.
 module.exports = {
-  getMinifigActors: getMinifigActors
+  getMinifigActors: getMinifigActors,
+  getSets : getSets,
+  getProductReview : getProductReview
 }
