@@ -1,5 +1,5 @@
 .setinfo-container {
-  display: table-cell;
+  display: block;
   /* margin: 10px 0; */
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -12,7 +12,7 @@
   padding: 10px;
   color: rgb(128, 128, 128);
   cursor: pointer;
-  font-size: 30px;
+  font-size: 25px;
   /* box-sizing: border-box; */
 }
 
@@ -22,8 +22,7 @@
 }
 
 .setinfo-container .year{
-  font-size: 30px;
-  flex: 1 0 20%;
+  font-size: 25px;
   margin: 5px 0;
   padding: 10px;
   color: rgb(128, 128, 128);
@@ -43,23 +42,105 @@
   bottom: 0px;
 }
 
-.review-container {
-  /* margin: 10px 0; */
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  /* border-bottom: 1px solid #ddd; */
-}
-
-.review-container .text{
-  font-size: 15px;
-  color: rgb(128, 128, 128);
-}
-
 .h5 {
   margin: 5px 0;
   color: rgb(128, 128, 128);
   cursor: pointer;
   font-size: 30px;
   /* box-sizing: border-box; */
+}
+
+.review-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  flex: 1 0 30%;
+  font-size: 15px;
+  margin: auto;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+
+.section-container {
+  color: rgb(128, 128, 128);
+  display: block;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  flex: 1 0 30%;
+  font-size: 15px;
+  margin: auto;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.review-container .ReviewButton:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.part-container .frame .image {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit:cover;
+}
+
+.part-container .frame {
+  display: table-cell;
+  width: 100px;
+  height: 100px;
+  background: rgb(255, 255, 255);
+  margin: auto;
+  padding: 10px 10px;
+  text-align: center;
+  vertical-align: middle;
+  bottom: 0px;
+}
+.part-container .text {
+  font-size: 10px;
+  margin: 5px 0;
+  padding: 10px;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+}
+
+.part-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  flex: 1 0 30%;
+  font-size: 10px;
+  margin: 2px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.set-container .set .frame .image {
+  max-width: 280px;
+  max-height: 280px;
+  object-fit:cover;
+}
+
+.set-container .set .name .year{
+  flex: 1 0 20%;
+  margin: 5px 0;
+  padding: 10px;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+  /* box-sizing: border-box; */
+}
+
+.set-container .set .frame {
+  display: table-cell;
+  width: 300px;
+  height: 300px;
+  background: rgb(255, 255, 255);
+  margin: auto;
+  padding: 10px 10px;
+  text-align: center;
+  vertical-align: middle;
+  bottom: 0px;
 }

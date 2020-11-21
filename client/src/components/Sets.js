@@ -11,7 +11,7 @@ export default class Sets extends React.Component {
     // The state maintained by this React Component. This component maintains the list of genres,
     // and a list of movies for a specified genre.
     this.state = {
-      themeID: "15",
+      themeID: "20",
       sets: []
     }
 
@@ -40,7 +40,7 @@ export default class Sets extends React.Component {
   }
 
   showSets(set_num, name, year, url) {
-    window.location.href = "/product?param1="+set_num+"&param2="+name +"&param3=" + year + "&param4=" + url 
+    window.location.href = "/product?set_num="+set_num+"&name="+name +"&year=" + year + "&url=" + url 
   }
 
   render() {    

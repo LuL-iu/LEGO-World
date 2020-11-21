@@ -76,9 +76,83 @@ function getProductReview(req, res) {
   });
 }
 
+function getAllParts(req, res) {
+  var query = `
+    SELECT IP.part_num, IP.quantity, P.name, P.image_url 
+    FROM inventory_part IP JOIN part P ON IP.part_num = P.part_num
+    WHERE IP.inventory_id IN
+    (SELECT id
+    FROM inventory 
+    WHERE set_num IN
+    (SELECT ISet.set_num
+    FROM inventory I JOIN inventory_set ISet ON I.id = ISet.inventory_id
+    WHERE I.set_num = '${req.params.set_num}')
+    OR set_num = '${req.params.set_num}');
+  `;
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+
+function getSimilarSet(req, res) {
+  var query = `
+  WITH selectInventory AS(
+    SELECT id, set_num
+    FROM inventory 
+    WHERE set_num IN
+    (SELECT ISet.set_num
+    FROM inventory I JOIN inventory_set ISet ON I.id = ISet.inventory_id
+    WHERE I.set_num = '${req.params.set_num}')
+    OR set_num = '${req.params.set_num}'),
+    
+    selectPart AS(
+    SELECT IP.part_num, IP.color_id, IP.is_spare, SUM(IP.quantity) as q
+    FROM inventory_part IP, selectInventory SI 
+    WHERE IP.inventory_id = SI.id
+    GROUP BY IP.part_num, IP.color_id, IP.is_spare),
+    
+    similarPart AS(
+    SELECT IP.inventory_id as id, IP.part_num, IF(IP.quantity > SP.q, SP.q, IP.quantity) AS quantity
+    FROM inventory_part IP JOIN selectPart SP ON IP.part_num = SP.part_num
+    WHERE IP.color_id = SP.color_id
+    AND IP.is_spare = SP.is_spare),
+    
+    similarTotal AS(
+    SELECT id, SUM(quantity) AS total
+    FROM similarPart
+    GROUP BY id),
+    
+    totalSelect AS(
+    SELECT SUM(q) AS total
+    FROM selectPart)
+    
+    SELECT DISTINCT S1.name, S1.set_num, S1.year AS year, S1.image_url AS url, ST.total AS sameParts, ST.total/TS.total AS similarity
+    FROM sets S1, totalSelect TS, similarTotal ST, inventory I
+    WHERE ST.id = I.id
+    AND S1.set_num = I.set_num
+    AND S1.set_num <> '${req.params.set_num}'
+    AND ST.total/TS.total >= 0.2
+    ORDER BY similarity DESC
+    LIMIT 20;    
+  `;
+
+  connection.query(query, function(err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+
 // The exported functions, which can be accessed in index.js.
 module.exports = {
   getMinifigActors: getMinifigActors,
   getSets : getSets,
-  getProductReview : getProductReview
+  getProductReview : getProductReview,
+  getAllParts : getAllParts,
+  getSimilarSet : getSimilarSet
 }

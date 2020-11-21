@@ -1,88 +1,158 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReviewRow from './ReviewRow';
+import ReviewButton from './ReviewButton';
+import PartRow from './PartRow';
+import PartButton from './PartButton';
+import SimilarSetButton from './SimilarSetButton';
+import SimilarButton from './SimilarButton';
 import '../style/Product.css';
 import PageNavbar from './PageNavbar';
 export default class product extends React.Component {
+
   constructor(props) {
     super(props);
-
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    
     // The state maintained by this React Component. This component maintains the list of genres,
     // and a list of movies for a specified genre.
     this.state = {
-      name : "",
-      year: "",
-      url: "",
-      reviews: []
+      set_num : urlParams.get('set_num'),
+      name : urlParams.get('name'),
+      year : urlParams.get('year'),
+      url : urlParams.get('url'),
+      reviews: [],
+      parts: [],
+      similarSets: []
     }
   }
 
   // React function that is called when the page load.
   componentDidMount() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const set_num = urlParams.get('param1')
-    const name = urlParams.get('param2')
-    const year = urlParams.get('param3')
-    const url = urlParams.get('param4')
-    if(set_num == '') set_num = '8479-1'
-    // Send an HTTP request to the server.
-    fetch("http://localhost:8081/product/" + set_num,
+  }
+
+  showReviews(set_num) {
+    fetch("http://localhost:8081/product/reviews/" + this.state.set_num,
     {
-      method: 'GET' // The type of HTTP request.
+      method: 'GET' 
     }).then(res => {
-      // Convert the response data to a JSON.
       return res.json();
     }, err => {
-      // Print the error if there is one.
       console.log(err);
     }).then(reviewList => {
       if (!reviewList) return;
-      // Map each genreObj in genreList to an HTML element:
-      // A button which triggers the showMovies function for each genre.
       let reviewDivs = reviewList.map((setObj, i) =>
-      <ReviewRow id={"review-" + setObj.set_num} overall ={setObj.overall} review= {setObj.review} title={setObj.title} author={setObj.author} date={setObj.date}/>
+      <ReviewRow overall ={setObj.overall} review= {setObj.review} title={setObj.title} author={setObj.author} date={setObj.date}/>
       );
-      // Set the state of the genres list to the value returned by the HTTP response from the server.
       this.setState({
-        reviews: reviewDivs,
-        name: name,
-        year: year,
-        url: url
+        reviews: reviewDivs
       });
+      console.log(this.state.reviews);
     }, err => {
-      // Print the error if there is one.
       console.log(err);
     });
+  }
+
+  showParts(set_num) {
+    fetch("http://localhost:8081/product/parts/" + this.state.set_num,
+    {
+      method: 'GET'
+    }).then(res => {
+      return res.json();
+    }, err => {
+      console.log(err);
+    }).then(partList => {
+      if (!partList) return;
+      let partDivs = partList.map((partObj, i) =>
+      <PartRow id={"parts-" + partObj.part_num} quantity ={partObj.quantity} url= {partObj.image_url} name={partObj.name}/>
+      );
+      this.setState({
+        parts: partDivs
+      });
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  showSimilarSets(set_num) {
+    fetch("http://localhost:8081/product/similarSet/" + this.state.set_num,
+    {
+      method: 'GET'
+    }).then(res => {
+      return res.json();
+    }, err => {
+      console.log(err);
+    }).then(setList => {
+      if (!setList) return;
+      let setDivs = setList.map((setObj, i) =>
+      <SimilarSetButton id={"button-" + setObj.name} onClick={() => this.showSets(setObj.set_num, setObj.name, 
+      setObj.year, setObj.url)} name ={setObj.name} sameParts = {setObj.sameParts} similarity = {setObj.similarity} year={setObj.year} url={setObj.url}/>
+      );
+      this.setState({
+        similarSets: setDivs
+      });
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  showSets(set_num, name, year, url) {
+    window.location.href = "/product?set_num="+set_num+"&name="+name +"&year=" + year + "&url=" + url 
   }
 
   render() {    
     return (
       <div className="Product">
         <PageNavbar active="product" />
-        <div className="container review-container">
-          <div className="container setinfo-container">
-            <div className="jumbotron">
-              <div className="h5">LEGO SET</div>
-              <div className="name">{this.state.name}</div>
-              <div className="year">{this.state.year}</div>
-              <div className="theme">{this.state.theme}</div>
-              <div class="frame">
-                <img src={this.state.url} alt="centered image" className="image" />
+   
+        <div className="container setinfo-container">
+          <div className="jumbotron">
+            <div className="name">{this.state.name}</div>
+            <div className="year">{this.state.year}</div>
+            <div className="theme">{this.state.theme}</div>
+            <div className="frame">
+              <img src={this.state.url} alt="centered image" className="image" />
+            </div>
+          </div>
+        </div>
+
+        <br></br>
+        <div className="container section-container">
+          <div className="jumbotron">
+            <div className = "part">
+              <PartButton id={"button-" + this.state.set_num} onClick={() => this.showParts(this.set_num)}></PartButton>
+              <div className="part-container">
+                {this.state.parts}
               </div>
             </div>
           </div>
+        </div>
 
-          <br></br>
-          <div className="container review-container">
-            <div className="jumbotron">
-              <div className="h5">Reviews</div>
+        <br></br>
+        <div className="container section-container">
+          <div className="jumbotron">
+            <div className = "review">
+              <ReviewButton id={"button-" + this.state.set_num} onClick={() => this.showReviews(this.set_num)}></ReviewButton>
               <div className="review-container">
                 {this.state.reviews}
               </div>
             </div>
           </div>
         </div>
+
+        <br></br>
+        <div className="container section-container">
+          <div className="jumbotron">
+            <div className = "set">
+              <SimilarButton id={"button-" + this.state.set_num} onClick={() => this.showSimilarSets(this.set_num)}></SimilarButton>
+              <div className="set-container">
+                {this.state.similarSets}
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     );
   }
