@@ -36,7 +36,7 @@ function getMinifigActors(req, res) {
     WHERE image_url IS NOT NULL
     ORDER BY RAND();
   `;
-  connection.query(query, function(err, rows, fields) {
+  connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {
       res.json(rows);
@@ -52,7 +52,7 @@ function getSets(req, res) {
   ORDER BY name;
   `;
 
-  connection.query(query, function(err, rows, fields) {
+  connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {
       res.json(rows);
@@ -68,7 +68,7 @@ function getProductReview(req, res) {
     ORDER BY date;
   `;
 
-  connection.query(query, function(err, rows, fields) {
+  connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {
       res.json(rows);
@@ -90,7 +90,7 @@ function getAllParts(req, res) {
     OR set_num = '${req.params.set_num}');
   `;
 
-  connection.query(query, function(err, rows, fields) {
+  connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {
       res.json(rows);
@@ -140,7 +140,7 @@ function getSimilarSet(req, res) {
     LIMIT 20;    
   `;
 
-  connection.query(query, function(err, rows, fields) {
+  connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {
       res.json(rows);
@@ -148,11 +148,47 @@ function getSimilarSet(req, res) {
   });
 }
 
+
+function getMinifigs(req, res) {
+  const query = `select name, fig_num, num_parts, image_url 
+  from minifig  WHERE num_parts > 5
+  `
+  connection.query(query, function (err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+  
+}
+
+function getMinifigById(req, res) {
+const query = `m.name, m. fig_num, m.image_url,select a.name, 
+from actor a, actor_minifig_mapping am, minifig m
+where a.id = am.actor_id and am.fig_num = m.fig_num and fig_num = '${req.params.fig_num}'`
+
+
+  connection.query(query, function (err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+  
+}
+
+function getActorByName(req, res) {
+  const query = `SELECT actor.name AS actor_name, minifig.name AS minifig_name, image_url
+  FROM actor where `
+}
 // The exported functions, which can be accessed in index.js.
 module.exports = {
   getMinifigActors: getMinifigActors,
-  getSets : getSets,
-  getProductReview : getProductReview,
-  getAllParts : getAllParts,
-  getSimilarSet : getSimilarSet
+  getSets: getSets,
+  getProductReview: getProductReview,
+  getAllParts: getAllParts,
+  getSimilarSet: getSimilarSet,
+  getMinifigs: getMinifigs,
+  getMinifigById: getMinifigById,
+  getActorByName: getActorByName
 }

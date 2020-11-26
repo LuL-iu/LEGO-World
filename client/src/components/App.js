@@ -5,6 +5,8 @@ import {
 	Switch
 } from 'react-router-dom';
 import MinifigGame from './MinifigGame';
+import Minifig from './Minifig';
+import MinifigDetail from './MinifigDetail';
 import Sets from './Sets';
 import Product from './Product';
 
@@ -26,7 +28,7 @@ export default class App extends React.Component {
 							path="/sets"
 							render={() => (
 								<Sets />
-							)}s
+							)}
 						/>
 						<Route
 							path="/product"
@@ -41,6 +43,18 @@ export default class App extends React.Component {
 								<MinifigGame />
 							)}
 						/>
+
+						<Route
+							path="/Minifig"
+							render={() => (
+								<Minifig />
+							)}
+							
+						/>
+							
+						<Route path="/detail" render={() => (
+								<MinifigDetail />
+							)}/>
 					</Switch>
 				</Router>
 			</div>
