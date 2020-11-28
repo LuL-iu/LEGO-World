@@ -25,7 +25,8 @@ app.get('/product/parts/:set_num', routes.getAllParts);
 app.get('/product/reviews/:set_num', routes.getProductReview);
 app.get('/product/similarSet/:set_num', routes.getSimilarSet);
 app.get('/minifig/:fig_num', routes.getMinifigById)
-app.get('/minifig/all', routes.getMinifigs)
+// app.get('/minifig/all', routes.getMinifigs)
+app.get('/minifig/actor/:fig_num', routes.getActorByFigNum)
 
 
 

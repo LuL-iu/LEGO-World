@@ -151,8 +151,7 @@ function getSimilarSet(req, res) {
 
 function getMinifigs(req, res) {
   const query = `select name, fig_num, num_parts, image_url 
-  from minifig  WHERE num_parts > 5
-  `
+  from minifig where num_parts > 10`
   connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {
@@ -163,11 +162,15 @@ function getMinifigs(req, res) {
 }
 
 function getMinifigById(req, res) {
-const query = `m.name, m. fig_num, m.image_url,select a.name, 
-from actor a, actor_minifig_mapping am, minifig m
-where a.id = am.actor_id and am.fig_num = m.fig_num and fig_num = '${req.params.fig_num}'`
 
+  if (req.params.fig_num === 'all') {
 
+    getMinifigs(req, res)
+    return;
+  }
+  const query = `select name, fig_num, num_parts, image_url 
+  from minifig  WHERE fig_num = '${req.params.fig_num}'
+  `
   connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {
@@ -177,9 +180,21 @@ where a.id = am.actor_id and am.fig_num = m.fig_num and fig_num = '${req.params.
   
 }
 
-function getActorByName(req, res) {
-  const query = `SELECT actor.name AS actor_name, minifig.name AS minifig_name, image_url
-  FROM actor where `
+function getActorByFigNum(req, res) {
+  console.log(123123123)
+  const query = `select a.name, m. fig_num, m.image_url
+  from actor_minifig_mapping am
+  join actor a on a.id = am.actor_id
+  join minifig m on am.fig_num = m.fig_num 
+  where m.fig_num ='${req.params.fig_num}'
+  `;
+
+  connection.query(query, function (err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
 }
 // The exported functions, which can be accessed in index.js.
 module.exports = {
@@ -190,5 +205,5 @@ module.exports = {
   getSimilarSet: getSimilarSet,
   getMinifigs: getMinifigs,
   getMinifigById: getMinifigById,
-  getActorByName: getActorByName
+  getActorByFigNum: getActorByFigNum
 }

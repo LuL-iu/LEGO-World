@@ -37,7 +37,6 @@ export default () => {
     }, [])
 
     async function requestServer(figNum = 'all') {
-
         return fetch(`http://localhost:8081/minifig/${figNum}`, { method: 'GET' }).then(res => {
             return res.json();
         })
