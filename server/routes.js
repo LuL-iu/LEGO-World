@@ -196,6 +196,21 @@ function getActorByFigNum(req, res) {
     }
   });
 }
+
+function getTopLevelThemes(req, res) {
+  var query = `
+    SELECT id, name 
+    FROM theme 
+    WHERE parent_id IS NULL;  
+  `;
+  connection.query(query, function (err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+
 // The exported functions, which can be accessed in index.js.
 module.exports = {
   getMinifigActors: getMinifigActors,
@@ -205,5 +220,6 @@ module.exports = {
   getSimilarSet: getSimilarSet,
   getMinifigs: getMinifigs,
   getMinifigById: getMinifigById,
-  getActorByFigNum: getActorByFigNum
+  getActorByFigNum: getActorByFigNum,
+  getTopLevelThemes: getTopLevelThemes
 }
