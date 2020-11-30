@@ -21,7 +21,7 @@
   object-fit:cover;
 }
 
-.setinfo-container .year{
+.setinfo-container  .year{
   font-size: 25px;
   margin: 5px 0;
   padding: 10px;
@@ -143,4 +143,51 @@
   text-align: center;
   vertical-align: middle;
   bottom: 0px;
+}
+
+#dropdowncenter{
+  text-align: center;
+}
+
+#phonenumbers{
+  color:black;
+  background-color:#ffffff;
+  opacity: 0.8;
+  border:none;
+  width:1000px;
+  height:50px;
+}
+
+#phonenumberscontent{
+  width:700px;
+  color:black;
+  margin:-1px auto;
+  padding:0;
+  background-color: none;
+  margin-bottom: 5px;
+}
+
+/* class for all dropdown buttons*/
+.dropdown {
+position: relative;
+
+}
+
+.content {
+display: none;
+
+}
+
+.content[data-state="open"] {
+display: block;
+}
+
+.dropdown:after {
+content: "\01F53D"; /*here you can add any image url / sign you want for arrow down*/
+position: absolute;
+right: 15px;
+}
+
+.dropdown[data-toggle="on"]:after {
+  content: "\01F53C"; /*here you can add any image url / sign you want for arrow up*/
 }

@@ -1,17 +1,20 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 export default class PageNavbar extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			navDivs: []
+			navDivs: [],
+			searchTerm: ""
+
 		}
 	}
 
 	componentDidMount() {
-		const pageList = ['sets', 'product', 'MinifigGame', 'Minifig'];
+		const pageList = ['sets',  'MinifigGame', 'Minifig'];
 
 		let navbarDivs = pageList.map((page, i) => {
 			if (this.props.active === page) {
@@ -27,6 +30,14 @@ export default class PageNavbar extends React.Component {
 		});
 	}
 
+	editSearchTerm = (e) =>{
+		this.setState({searchTerm : e.target.value})
+	}
+	
+	showSets() {
+		window.location.href = "/product?set_num="+ this.state.searchTerm
+	}
+
 	render() {
 		return (
 			<div className="PageNavbar">
@@ -37,7 +48,12 @@ export default class PageNavbar extends React.Component {
 			        {this.state.navDivs}
 			        </div>
 			      </div>
-			    </nav>
+			  
+				<Form inline>
+					<FormControl type="text" placeholder="Search" className="mr-sm-2" onChange = {this.editSearchTerm} onKeyDown={ (e) => {if (e.key === 'Enter') {console.log('do validate');}}} />
+      				<Button variant="outline-success" onClick = {() => this.showSets(this.state.searchTerm)}>Search</Button>
+				</Form>
+				</nav>
 			</div>
         );
 	}

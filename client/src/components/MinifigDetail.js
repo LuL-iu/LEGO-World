@@ -17,7 +17,6 @@ export default withRouter((props) => {
             let actor = await getActor(res[0].fig_num)
             if (actor.length <= 0) return
             setActor(actor[0])
-           
         }
 
         getData()

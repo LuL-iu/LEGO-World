@@ -60,6 +60,21 @@ function getSets(req, res) {
   });
 }
 
+function getSelectSet(req, res) {
+  var query = `
+  SELECT *
+  FROM sets 
+  WHERE set_num = '${req.params.set_num}';
+  `;
+ 
+  connection.query(query, function (err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+
 function getProductReview(req, res) {
   var query = `
     SELECT rating_overall as overall, review, title, author, date
@@ -205,5 +220,6 @@ module.exports = {
   getSimilarSet: getSimilarSet,
   getMinifigs: getMinifigs,
   getMinifigById: getMinifigById,
-  getActorByFigNum: getActorByFigNum
+  getActorByFigNum: getActorByFigNum,
+  getSelectSet : getSelectSet
 }

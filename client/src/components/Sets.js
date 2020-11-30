@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNavbar from './PageNavbar';
 import SetButton from './SetButton';
 
+
 export default class Sets extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +16,7 @@ export default class Sets extends React.Component {
       sets: []
     }
 
-    this.showSets = this.showSets.bind(this);
+    // this.showSets = this.showSets.bind(this);
   }
 
   componentDidMount() {
@@ -40,7 +41,7 @@ export default class Sets extends React.Component {
   }
 
   showSets(set_num, name, year, url) {
-    window.location.href = "/product?set_num="+set_num+"&name="+name +"&year=" + year + "&url=" + url 
+    window.location.href = "/product?set_num="+set_num 
   }
 
   render() {    
@@ -48,7 +49,7 @@ export default class Sets extends React.Component {
       <div className="Sets">
 
         <PageNavbar active="sets" />
-
+  
         <br></br>
         <div className="container sets-container">
           <div className="jumbotron">

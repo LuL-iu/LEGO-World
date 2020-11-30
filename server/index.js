@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/minifig-actor/:theme', routes.getMinifigActors);
 app.get('/sets/:themeID', routes.getSets);
+app.get('/product/:set_num', routes.getSelectSet);
 app.get('/product/parts/:set_num', routes.getAllParts);
 app.get('/product/reviews/:set_num', routes.getProductReview);
 app.get('/product/similarSet/:set_num', routes.getSimilarSet);
