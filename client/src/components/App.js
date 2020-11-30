@@ -9,6 +9,7 @@ import Minifig from './Minifig';
 import MinifigDetail from './MinifigDetail';
 import Sets from './Sets';
 import Product from './Product';
+import Home from './Home';
 
 export default class App extends React.Component {
 
@@ -21,14 +22,12 @@ export default class App extends React.Component {
 							exact
 							path="/"
 							render={() => (
-								<Sets />
+								<Home />
 							)}
 						/>
 						<Route
-							path="/sets"
-							render={() => (
-								<Sets />
-							)}
+							path='/sets/:themeId'
+							component={Sets}
 						/>
 						<Route
 							path="/product"

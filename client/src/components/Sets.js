@@ -11,7 +11,6 @@ export default class Sets extends React.Component {
     // The state maintained by this React Component. This component maintains the list of genres,
     // and a list of movies for a specified genre.
     this.state = {
-      themeID: "20",
       sets: []
     }
 
@@ -19,7 +18,9 @@ export default class Sets extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8081/sets/" + this.state.themeID,
+    const { themeId } = this.props.match.params;
+    
+    fetch("http://localhost:8081/sets/" + themeId,
     {
       method: 'GET' 
     }).then(res => {
