@@ -28,6 +28,8 @@ app.get('/product/similarSet/:set_num', routes.getSimilarSet);
 app.get('/minifig/:fig_num', routes.getMinifigById);
 // app.get('/minifig/all', routes.getMinifigs)
 app.get('/minifig/actor/:fig_num', routes.getActorByFigNum)
+app.get('/search/set/:text', routes.getSearchSet);
+app.get('/search/minifig/:text', routes.getSearchMinifig);
 
 
 

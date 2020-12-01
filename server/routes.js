@@ -226,6 +226,36 @@ function getTopLevelThemes(req, res) {
   });
 }
 
+function getSearchSet(req, res) {
+  var query = `
+    SELECT name, image_url, set_num, year
+    FROM sets
+    WHERE name like concat('%','${req.params.text}','%')
+    ORDER BY name;
+  `;
+  connection.query(query, function (err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+
+function getSearchMinifig(req, res) {
+  var query = `
+    SELECT name, image_url, fig_num
+    FROM minifig
+    WHERE name like concat('%','${req.params.text}','%')
+    ORDER BY name;
+  `;
+  connection.query(query, function (err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+
 // The exported functions, which can be accessed in index.js.
 module.exports = {
   getMinifigActors: getMinifigActors,
@@ -237,5 +267,8 @@ module.exports = {
   getMinifigById: getMinifigById,
   getActorByFigNum: getActorByFigNum,
   getSelectSet : getSelectSet,
-  getTopLevelThemes: getTopLevelThemes
+  getTopLevelThemes: getTopLevelThemes,
+  getSearchMinifig: getSearchMinifig,
+  getSearchSet: getSearchSet
+
 }
