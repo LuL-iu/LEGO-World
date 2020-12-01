@@ -1,11 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReviewRow from './ReviewRow';
-
 import PartRow from './PartRow';
-
 import SimilarSetButton from './SimilarSetButton';
-
 import '../style/Product.css';
 import PageNavbar from './PageNavbar';
 export default class product extends React.Component {
@@ -160,7 +157,7 @@ export default class product extends React.Component {
   render() {    
     return (
       <div className="Product">
-        <PageNavbar active="product" />
+        <PageNavbar />
 
         <div className="container setinfo-container">
           <div className="jumbotron">

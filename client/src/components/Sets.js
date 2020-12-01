@@ -49,7 +49,7 @@ export default class Sets extends React.Component {
     return (
       <div className="Sets">
 
-        <PageNavbar active="sets" />
+        <PageNavbar  />
   
         <br></br>
         <div className="container sets-container">

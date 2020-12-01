@@ -10,6 +10,7 @@ import MinifigDetail from './MinifigDetail';
 import Sets from './Sets';
 import Product from './Product';
 import Home from './Home';
+import Search from './Search';
 
 export default class App extends React.Component {
 
@@ -54,6 +55,14 @@ export default class App extends React.Component {
 						<Route path="/detail" render={() => (
 								<MinifigDetail />
 							)}/>
+
+						<Route
+							path="/search"
+							render={() => (
+								<Search />
+							)}
+						/>
+
 					</Switch>
 				</Router>
 			</div>
