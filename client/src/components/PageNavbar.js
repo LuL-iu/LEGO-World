@@ -14,7 +14,7 @@ export default class PageNavbar extends React.Component {
 	}
 
 	componentDidMount() {
-		const pageList = ['sets',  'MinifigGame', 'Minifig'];
+		const pageList = ['Home'];
 
 		let navbarDivs = pageList.map((page, i) => {
 			if (this.props.active === page) {
@@ -30,13 +30,23 @@ export default class PageNavbar extends React.Component {
 		});
 	}
 
-	editSearchTerm = (e) =>{
-		this.setState({searchTerm : e.target.value})
-	}
+	handleChange = e => {
+		this.setState({searchTerm : e.target.value});
+	};
+
+	handleSubmit = e => {
+		e.preventDefault();
+		window.location.href = "/search?text="+ this.state.searchTerm
+		// or you can send data to backend
+	  };
 	
-	showSets() {
-		window.location.href = "/product?set_num="+ this.state.searchTerm
-	}
+	  handleKeypress = e => {
+
+		if (e.keyCode === 13) {
+			e.preventDefault();
+		  this.btn.click();
+		}
+	  };
 
 	render() {
 		return (
@@ -50,8 +60,8 @@ export default class PageNavbar extends React.Component {
 			      </div>
 			  
 				<Form inline>
-					<FormControl type="text" placeholder="Search" className="mr-sm-2" onChange = {this.editSearchTerm} onKeyDown={ (e) => {if (e.key === 'Enter') {console.log('do validate');}}} />
-      				<Button variant="outline-success" onClick = {() => this.showSets(this.state.searchTerm)}>Search</Button>
+					<FormControl type="text" placeholder="Search" className="mr-sm-2" onChange = {this.handleChange} onKeyDown={this.handleKeypress} />
+      				<Button variant="outline-success" ref={node => (this.btn = node)} onClick = {this.handleSubmit}>Search</Button>
 				</Form>
 				</nav>
 			</div>
