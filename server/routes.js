@@ -272,3 +272,54 @@ module.exports = {
   getSearchSet: getSearchSet
 
 }
+
+
+
+
+function querySet(req, res) {
+  const query = `SELECT S.set_num, S.name, S.image_url
+  FROM inventory_minifig Ifig JOIN inventory I ON I.id = Ifig.inventory_id
+  JOIN minifig M ON Ifig.fig_num = M.fig_num
+  JOIN sets S on I.set_num = S.set_num
+  WHERE Ifig.fig_num = '${req.params.fig_num}';
+  
+  `;
+
+  connection.query(query, function (err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+
+
+function queryRelative(req, res) {
+  const query = `
+  SELECT M.fig_num, M.name, M.image_url
+FROM inventory_minifig Ifig JOIN inventory I ON I.id = Ifig.inventory_id
+JOIN minifig M ON Ifig.fig_num = M.fig_num
+WHERE M.fig_num <> '${req.params.set_num}'
+and I.set_num = '${req.params.set_num}';
+  `;
+
+  connection.query(query, function (err, rows, fields) {
+    if (err) console.log(err);
+    else {
+      res.json(rows);
+    }
+  });
+}
+// The exported functions, which can be accessed in index.js.
+module.exports = {
+  getMinifigActors: getMinifigActors,
+  getSets: getSets,
+  getProductReview: getProductReview,
+  getAllParts: getAllParts,
+  getSimilarSet: getSimilarSet,
+  getMinifigs: getMinifigs,
+  getMinifigById: getMinifigById,
+  getActorByFigNum: getActorByFigNum,
+  querySet: querySet,
+  queryRelative: queryRelative
+}
