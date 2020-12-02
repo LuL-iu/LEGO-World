@@ -1,6 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../style/MinifigGame.css';
+import PageNavbar from './PageNavbar';
+import { withStyles } from '@material-ui/core/styles';
+import { Box, Card, CardMedia, Container, FormControl, FormLabel, InputLabel, MenuItem, Select, Grid, RadioGroup, FormControlLabel, Radio, Button, FormHelperText } from '@material-ui/core';
 
 
 // Helper function to remove unnecessary text from minifig name 
@@ -22,7 +24,32 @@ function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
-export default class MinifigGame extends React.Component {
+const useStyles = theme => ({
+  movieSelector: {
+    width: "100%",
+    textAlign: "center"
+   },
+   gameContainer: {
+    height: 700
+   },
+   imageBox: {
+    width: "50%",
+    height: "100%"
+   },
+   image: {
+    width: "100%",
+    height: "100%",
+    objectFit: "fill"
+   },
+   answerBox: {
+     display: "flex",
+     width: "50%",
+     alignItems: "center",
+     justifyContent: "center"
+   }
+});
+
+class MinifigGame extends React.Component {
   constructor(props) {
     super(props);
 
@@ -37,7 +64,8 @@ export default class MinifigGame extends React.Component {
       currActorOptions: [],
       currCharacterOptions: [],
       currImageUrl: "",
-      feedback: ""
+      feedback: "",
+      selectedAnswer: ""
 		};
 
     this.onMovieSubmit = this.onMovieSubmit.bind(this);
@@ -50,7 +78,7 @@ export default class MinifigGame extends React.Component {
   // React function that is called when the page load.
   componentDidMount() {
     let movieOptions = this.movieList.map((movie, i) =>
-		  <option value={movie}> {movie} </option> 
+		  <MenuItem value={movie}><b> {movie} </b></MenuItem> 
     );
     
     this.setState({
@@ -61,11 +89,13 @@ export default class MinifigGame extends React.Component {
   handleMovieChange(e) {
 		this.setState({
       selectedMovie: e.target.value,
-      guessingCharacter: true
-		});
+      guessingCharacter: true,
+      feedback: ""
+		}, this.onMovieSubmit);
 	}
 
   onMovieSubmit() {
+    console.log("HELDKAFJDIOASFODAJLKDAFJK");
     fetch(`http://localhost:8081/minifig-actor/${this.state.selectedMovie}`,
     {
       method: 'GET' // The type of HTTP request.
@@ -155,7 +185,8 @@ export default class MinifigGame extends React.Component {
 
       if (answerOption.isCorrect) {
         this.setState({
-          guessingCharacter: false
+          guessingCharacter: false,
+          feedback: ""
         });
       } else {
         this.setState({
@@ -170,6 +201,7 @@ export default class MinifigGame extends React.Component {
       }
       if (answerOption.isCorrect) {
         this.setState({
+          feedback: "",
           guessingCharacter: true,
           minifigActorIndex: this.state.minifigActorIndex + 1
         }, () => this.nextImage());
@@ -193,66 +225,66 @@ export default class MinifigGame extends React.Component {
     let prompt;
     if (this.state.guessingCharacter) {
       choices = this.state.currCharacterOptions.map((charObj, i) => {
-        return ( 
-          <div className="radio"> 
-            <label>
-              <input
-                type="radio"
-                value={charObj.text}
-                checked={this.state.selectedAnswer === charObj.text}
-                onChange={this.onAnswerChange} 
-              />
-              {charObj.text}
-            </label>
-          </div>  );
+        return <FormControlLabel value={charObj.text} control={<Radio />} label={charObj.text} />;
       });
-      prompt = "Pick the character!"
+      prompt = "Guess the character!";
     } else {
       choices = this.state.currActorOptions.map((actObj, i) => {
-        return ( 
-          <div className="radio"> 
-            <label>
-              <input
-                type="radio"
-                value={actObj.text}
-                checked={this.state.selectedAnswer === actObj.text}
-                onChange={this.onAnswerChange} 
-              />
-              {actObj.text}
-            </label>
-          </div>  );
+        return <FormControlLabel value={actObj.text} control={<Radio />} label={actObj.text} />;
       });
-      prompt = "Pick the actor/actress!"
+      let correctCharacter = "";
+      for (let i = 0; i < this.state.currCharacterOptions.length; i++) {
+        if (this.state.currCharacterOptions[i].isCorrect) {
+          correctCharacter = this.state.currCharacterOptions[i].text;
+        }
+      }
+      prompt = "Who played " + correctCharacter + "?";
     }
 
-    return (
+    const { classes } = this.props;
+    return (      
       <div>
-        <div className="dropdown-container">
-          <select value={this.state.selectedMovie} onChange={this.handleMovieChange} className="dropdown" id="moviesDropdown">
-            <option select value> -- select a movie -- </option>
-            {this.state.movies}
-          </select>
-          <button className="submit-btn" id="moviesSubmitBtn" onClick={this.onMovieSubmit}>PLAY!</button>
-        </div>
-        <div>
-          <img 
-            src={this.state.currImageUrl}
-            alt="minifig"  
-          />
-        </div>
-        <div>
-          {prompt}
-          <form onSubmit={this.onAnswerSubmit}>
-            {choices}
-            <div>
-              {this.state.feedback}
-            </div>
-            <button className="btn btn-default" type="submit">
-              Submit
-            </button>
-          </form>
-        </div>
+        <PageNavbar />
+        <Container maxWidth="lg">
+          <Box paddingTop={4}>
+            <FormControl className={classes.movieSelector}>
+              <Select value={this.state.selectedMovie} onChange={this.handleMovieChange} displayEmpty>
+                <MenuItem value="" disabled>
+                  <b>CHOOSE A MOVIE TO START PLAYING!</b>
+                </MenuItem>
+                {this.state.movies}
+              </Select>
+            </FormControl>
+          </Box>
+
+          {this.state.selectedMovie &&
+          <Box display="flex" flexDirection="row" paddingTop={4} className={classes.gameContainer} >
+            <Card className={classes.imageBox}>
+              <CardMedia 
+                component="img"
+                className={classes.image}
+                image={this.state.currImageUrl}
+                title="minifig"
+              />
+            </Card>
+            <Box className={classes.answerBox} >
+              <form onSubmit={this.onAnswerSubmit}>
+                <FormControl error={this.state.feedback} className={classes.answerForm}>
+                  <FormLabel className={classes.answerFormLabel}>{prompt}</FormLabel>
+                  <RadioGroup value={this.state.selectedAnswer} onChange={this.onAnswerChange}>
+                    {choices}
+                  </RadioGroup>
+                  <FormHelperText>{this.state.feedback}</FormHelperText>
+                  <Button type="submit" className={classes.button}> Submit! </Button>
+                </FormControl>
+              </form>
+            </Box> 
+          </Box>
+          }
+        </Container>
       </div>
     );
   }
 }
+
+export default withStyles(useStyles)(MinifigGame)
