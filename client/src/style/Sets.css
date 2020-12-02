@@ -33,11 +33,15 @@
   padding: 20px;
   color: rgb(128, 128, 128);
   cursor: pointer;
+  
   /* box-sizing: border-box; */
 }
 
-.setsContainer .set:hover {
-  background-color: #ddd;
+.setsInfoContainer .frame:hover{
+  transform:scale(1.15);
+  filter:blur(0px);
+  opacity:1;
+  box-shadow:0 5px 12px 0px rgba(0,0,0,0.125);
 }
 
 .setsContainer .set .frame .image {
@@ -66,4 +70,7 @@
   padding: 10px 10px;
   text-align: center;
   vertical-align: middle;
+  transition: .2s all; 
+  padding: 10px;
+  box-shadow:0 2px 3px 0px rgba(0,0,0,0.25);
 }
