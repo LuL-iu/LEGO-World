@@ -4,14 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default class SetButton extends React.Component {
 	constructor(props) {
 		super(props);
-
-		/* props looks like:
-		{
-			id
-			onClick
-			genre
-		}
-		*/
 	}
 
 	render() {

@@ -1,4 +1,8 @@
+.container{
+  display: table
+}
 .sets-container {
+  text-align: center;
   /* margin: 10px 0; */
   display: flex;
   justify-content: space-evenly;
@@ -38,6 +42,7 @@
 }
 
 .sets-container .h5 {
+  text-align: center;
   margin: 5px 0;
   padding: 10px;
   color: rgb(128, 128, 128);

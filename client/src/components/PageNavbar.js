@@ -1,6 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import '../style/PageNavbar.css';
+
 
 export default class PageNavbar extends React.Component {
 	constructor(props) {
@@ -18,10 +20,10 @@ export default class PageNavbar extends React.Component {
 
 		let navbarDivs = pageList.map((page, i) => {
 			if (this.props.active === page) {
-				return <a className="nav-item nav-link active" key={i} href={"/" + page}>{page.charAt(0).toUpperCase() + page.substring(1, page.length)}</a>
+				return <a className="nav-item nav-link active" key={i} href={"/" + page}><div className="linkText">{page.charAt(0).toUpperCase() + page.substring(1, page.length)}</div></a>
 			}
 			else {
-				return <a className="nav-item nav-link" key={i} href={"/" + page}>{page.charAt(0).toUpperCase() + page.substring(1, page.length)}</a>
+				return <a className="nav-item nav-link" key={i} href={"/" + page}><div className="linkText">{page.charAt(0).toUpperCase() + page.substring(1, page.length)}</div></a>
 			}
 		})
 
@@ -51,11 +53,11 @@ export default class PageNavbar extends React.Component {
 	render() {
 		return (
 			<div className="PageNavbar">
-				<nav className="navbar navbar-expand-lg navbar-light bg-light">
-			      <span className="navbar-brand center">LEGO WORLD</span>
+				<nav className="navbar navbar-expand-lg navbar-light" >
+			      <span className="navbar-brand center"><div className = "navTitle">LEGO WORLD</div></span>
 			      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 			        <div className="navbar-nav">
-			        {this.state.navDivs}
+			        	{this.state.navDivs}
 			        </div>
 			      </div>
 			  

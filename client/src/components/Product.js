@@ -156,11 +156,13 @@ export default class product extends React.Component {
   render() {    
     return (
       <div className="Product">
+        <br></br>
         <PageNavbar />
-        <div className="container">
+        <div className="searchContainer">
           {this.state.set}
         </div>     
-
+        <br></br>
+        <br></br>
           <div class = "PartContent">
             <button id="dropdown" class="dropdown" data-toggle="off">Show All Parts</button>
             <div id="dropdowncontent" class="content" data-state="closed">

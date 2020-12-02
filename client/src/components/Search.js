@@ -79,12 +79,11 @@ export default class Search extends React.Component {
   render() {    
     return (
       <div className="Sets">
-
+        <br></br>
         <PageNavbar/>
   
         <br></br>
-        <div className="container sets-container">
-          <div className="jumbotron">
+        <div className="container">
             <div className="h5">LEGO Sets</div>
             <div className="sets-container">
               {this.state.sets}
@@ -94,7 +93,7 @@ export default class Search extends React.Component {
             <div className="sets-container">
               {this.state.miniFigs}
             </div>
-          </div>
+         
         </div>
 
       </div>

@@ -44,10 +44,21 @@ function getMinifigActors(req, res) {
 
 function getSets(req, res) {
   var query = `
-  SELECT name, set_num, year, image_url 
-  FROM sets 
-  WHERE theme_id = '${req.params.themeID}'
-  ORDER BY name;
+    SELECT name, set_num, year, theme_id 
+    FROM sets
+    WHERE theme_id = '${req.params.themeID}'
+    OR theme_id IN
+    (SELECT id 
+    FROM theme 
+    WHERE parent_id = '${req.params.themeID}')
+    OR theme_id IN
+    (SELECT id
+    FROM theme
+    WHERE parent_id in
+    (SELECT id
+    FROM theme
+    WHERE parent_id = '${req.params.themeID}'))
+    order by name;
   `;
 
   connection.query(query, function (err, rows, fields) {
@@ -148,7 +159,7 @@ function getSimilarSet(req, res) {
     WHERE ST.id = I.id
     AND S1.set_num = I.set_num
     AND S1.set_num <> '${req.params.set_num}'
-    AND ST.total/TS.total >= 0.2
+    AND ST.total/TS.total >= 0.1
     ORDER BY similarity DESC
     LIMIT 20;    
   `;
@@ -214,7 +225,8 @@ function getTopLevelThemes(req, res) {
   var query = `
     SELECT id, name 
     FROM theme 
-    WHERE parent_id IS NULL;  
+    WHERE parent_id IS NULL
+    order by name;  
   `;
   connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);

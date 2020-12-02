@@ -1,55 +1,64 @@
-.sets-container {
-  /* margin: 10px 0; */
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  /* border-bottom: 1px solid #ddd; */
-}
-
-.sets-container .set {
-  display: block;
-  flex: 1 0 30%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-  color: rgb(128, 128, 128);
-  cursor: pointer;
-  bottom: 0px;
-  text-align:  left;
-  /* box-sizing: border-box; */
-}
-
-.sets-container .set:hover {
-  background-color: #ddd;
-}
-
-.sets-container .h5 {
+.setTitle{
+  
   margin: 5px 0;
   padding: 10px;
   color: rgb(128, 128, 128);
   cursor: pointer;
   font-size: 30px;
+  text-align: center;
+  font-weight: 15pt;
+}
+
+.setsContainer {
+  display: inline-grid;
+  grid-template-columns: 500px 500px 500px;
+  padding-left: 500px;
+  padding-right: 500px;
+  
+}
+
+.setsInfo{
+  
+  display: table;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.setsContainer .set {
+  display: table;
+ 
+  padding: 20px;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+  text-align: left;
+  
   /* box-sizing: border-box; */
 }
 
+.setsContainer .set:hover {
+  background-color: #ddd;
+}
 
-.sets-container .set .frame .image {
+.setsContainer .set .frame .image {
   max-width: 280px;
-  max-height: 280px;
+  max-height: 200px;
   object-fit:cover;
 }
 
-.sets-container .set .name .year{
-  flex: 1 0 20%;
-  margin: 5px 0;
-  padding: 10px;
+.setsContainer .name {
+  
   color: rgb(128, 128, 128);
-  cursor: pointer;
   /* box-sizing: border-box; */
 }
 
-.sets-container .set .frame {
+.setsContainer .year{
+  color: rgb(128, 128, 128);
+  /* box-sizing: border-box; */
+}
+
+.setsContainer .set .frame {
   display: table-cell;
   width: 300px;
   height: 300px;
@@ -57,6 +66,5 @@
   margin: auto;
   padding: 10px 10px;
   text-align: center;
-  vertical-align: middle;
-  bottom: 0px;
+  /* vertical-align: middle; */
 }

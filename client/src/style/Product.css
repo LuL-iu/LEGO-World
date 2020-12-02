@@ -1,14 +1,14 @@
 
-.container {
-  display: grid;
+.searchContainer {
   /* margin: 10px 0; */
   flex-flow: row wrap;
   justify-content: center;
   text-align: center;
   align-items: center;
+  padding:30pt;
 }
 
-.container .name {
+.searchContainer .name {
   margin: 5px 0;
   padding: 10px;
   color: rgb(128, 128, 128);
@@ -17,7 +17,7 @@
   /* box-sizing: border-box; */
 }
 
-.container  .year{
+.searchContainer  .year{
   font-size: 20px;
   margin: 5px 0;
   padding: 10px;
@@ -26,8 +26,8 @@
   /* box-sizing: border-box; */
 }
 
-.container .frame {
-  display: table-cell;
+.searchContainer .frame {
+  display: table;
   width: 500px;
   height: 500px;
   background: rgb(255, 255, 255);
@@ -39,7 +39,7 @@
   border-style: solid; */
 }
 
-.container .frame .image {
+.searchContainer .frame .image {
   max-width: 500px;
   object-fit:cover;
 }
@@ -102,13 +102,14 @@
 
 .PartName{
   color: rgb(0, 0, 0);
-  font-size: 10px;
+  font-size: 12px;
   max-width: 120px;
   font-weight: 400;
 }
 .Quantity{
   color: green;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 500;
 }
 .PartRow .frame .image {
   max-width: 70px;
@@ -129,43 +130,57 @@
 }
  
 .PartRow .text {
-  font-size: 9px;
+  font-size: 10px;
   margin: 5px 0;
   padding: 10px;
-  color: rgb(128, 128, 128);
   cursor: pointer;
 }
 
-.similarSet .frame .image {
-  max-width: 280px;
-  max-height: 280px;
-  object-fit:cover;
-}
-
-.similarSet .year{
+.similarSet .ssYear{
   color: rgb(128, 128, 128);
 }
 
+.similarSet .similarity{
+  color: forestgreen;
+}
+
+.similarSet .sameParts{
+  color: forestgreen;
+}
+
+.similarSet .title{
+  position: relative;
+  top: 50%; 
+  text-align: left;
+  color: rgb(0, 0, 0);
+  font-size: 12pt;
+}
+
+.similarSetText{
+  display: flex;
+}
 .similarSet .frame {
   display: table-cell;
   width: 300px;
   height: 300px;
   background: rgb(255, 255, 255);
-  margin: auto;
-  padding: 10px 10px;
   text-align: center;
   vertical-align: middle;
-  bottom: 0px;
+}
+
+.similarSet .frame .image {
+  max-width: 260px;
+  max-height: 260px;
+  object-fit:cover;
 }
 
 .similarSet{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
+  vertical-align: middle;
+  display: table;
+  padding: 20px;
 }
 
-.SimilarSetContent .similarSet :hover{
+.similarSet:hover{
   background-color: #ddd;
   cursor: pointer;
 }
@@ -178,10 +193,9 @@
 }
 
 .PartContent .content[data-state="open"] {
+  padding-top: 30pt;
   display: inline-grid;
-  grid-template-columns: 300px 300px 300px 300px;
-  padding-left: 500px;
-  padding-right: 500px;
+  grid-template-columns: 400px 400px 400px;
 }
 
 .SimilarSetContent{
@@ -189,12 +203,12 @@
   text-align: center;
   width: 100%;
   padding-bottom: 10px;
-  
 }
 
 .SimilarSetContent .content[data-state="open"] {
+  padding-top: 30pt;
   display: inline-grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 500px 500px 500px;
   padding-left: 500px;
   padding-right: 500px;
 }
@@ -208,6 +222,7 @@
 }
 
 .ReviewContent .content[data-state="open"] {
+  padding-top: 30pt;
   display: block;
   /* grid-template-columns: auto auto auto auto auto; */
   padding-left: 500px;
@@ -215,7 +230,6 @@
 }
 
 #dropdown{
-  Border: none;
   opacity: 0.8;
   border:none;
   width:100%;
@@ -234,12 +248,9 @@ display: none;
 content: "\01F53D";
 position: absolute;
 right: 30px;
-Border: none;
-
 }
 
 .dropdown[data-toggle="on"]:after {
   content: "\01F53C"; 
-  Border: none;
 }
 

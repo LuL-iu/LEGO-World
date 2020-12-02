@@ -1,0 +1,24 @@
+.navbar {
+  height: 60px;
+  background-color: rgb(252, 208, 15);
+}
+
+.navbar-brand{
+  font-weight: 450;
+}
+.linkText {
+  text-transform: uppercase;
+  color: black;
+  font-size: 14pt;;
+}
+
+.linkText:hover{
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+.navTitle{
+  color: rgb(255, 255, 255);
+  font-weight: 450;
+}
+
