@@ -5,12 +5,19 @@ import ThemeCard from './ThemeCard';
 import Typography from '@material-ui/core/Typography';
 import PageNavbar from './PageNavbar';
 import { withStyles } from '@material-ui/core/styles';
+import { Box, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = theme => ({
     heading: {
         textAlign: "center",
         color: '#FF7F50'
      },
+     button: {
+        width: "100%",
+        backgroundColor: "#eb9800",
+        color: "#FFFFFF"
+    },
 });
 
 
@@ -54,10 +61,13 @@ class Home extends React.Component {
         <div>
             <PageNavbar  />
             <Container maxWidth="lg">
-            <Typography className={classes.heading} variant="h3" gutterBottom>SELECT A THEME TO START EXPLORING THE WORLD OF LEGO</Typography>
+                <Typography className={classes.heading} variant="h3" gutterBottom>SELECT A THEME TO START EXPLORING THE WORLD OF LEGO</Typography>
                 <Grid container spacing={1}>
                     {this.state.themes}
                 </Grid>
+                <Box paddingTop={2}>
+                    <Link to={"/minifiggame"}><Button className={classes.button}>PLAY MINIFIG TRIVIA!</Button></Link>
+                </Box>
             </Container>
         </div>
         );
