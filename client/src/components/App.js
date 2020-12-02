@@ -27,6 +27,13 @@ export default class App extends React.Component {
 							)}
 						/>
 						<Route
+							exact
+							path="/home"
+							render={() => (
+								<Home />
+							)}
+						/>
+						<Route
 							path='/sets/:themeId'
 							component={Sets}
 						/>
