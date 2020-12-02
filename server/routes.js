@@ -226,7 +226,7 @@ function getTopLevelThemes(req, res) {
     SELECT id, name 
     FROM theme 
     WHERE parent_id IS NULL
-    order by name;  
+    ORDER BY name;  
   `;
   connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);

@@ -9,7 +9,7 @@ const useStyles = theme => ({
         width: "100px",
         height: "50px"
     },
-    paper: {
+    themeButton: {
         width: "100%",
         height: "100%",
         textAlign: "center",
@@ -19,7 +19,11 @@ const useStyles = theme => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        '&:hover': {
+            backgroundColor: "#d1cbdc",
+            color: '#FFF'
+        }
      },
      button: {
          width: "100px",
@@ -68,7 +72,7 @@ class ThemeCard extends React.Component {
         return (
             <Box className={classes.box} onMouseLeave={this.handleMouseLeave}>
                 {!this.state.selected && 
-                    <Paper onClick={this.handleSelectedToggle} className={classes.paper}><b>{this.props.themeName}</b></Paper>
+                    <Button onClick={this.handleSelectedToggle} className={classes.themeButton}><b>{this.props.themeName}</b></Button>
                 }
                 {this.state.selected &&
                     <Grid container>
