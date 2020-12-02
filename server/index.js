@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 // The route localhost:8081/genres is registered to the function
 // routes.getAllGenres, specified in routes.js.
 
-
+app.get('/top-level-themes', routes.getTopLevelThemes);
 app.get('/minifig-actor/:theme', routes.getMinifigActors);
 app.get('/sets/:themeID', routes.getSets);
 app.get('/product/parts/:set_num', routes.getAllParts);
