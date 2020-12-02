@@ -44,7 +44,7 @@ function getMinifigActors(req, res) {
 
 function getSets(req, res) {
   var query = `
-    SELECT name, set_num, year, theme_id 
+    SELECT *
     FROM sets
     WHERE theme_id = '${req.params.themeID}'
     OR theme_id IN

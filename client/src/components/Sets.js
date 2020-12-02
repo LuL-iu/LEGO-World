@@ -31,7 +31,7 @@ export default class Sets extends React.Component {
     }).then(setList => {
       if (!setList) return;
       let setDivs = setList.map((setObj, i) =>
-      <SetButton id={"button-" + setObj.name} onClick={() => this.showSets(setObj.set_num, setObj.name, setObj.year, setObj.image_url)} name ={setObj.name} year={setObj.year} url={setObj.image_url}/>
+      <SetButton id={"button-" + setObj.name} onClick={() => this.showSets(setObj.set_num)} num_parts = {setObj.num_parts} name ={setObj.name} year={setObj.year} url={setObj.image_url}/>
       );
       this.setState({
         sets: setDivs
@@ -41,7 +41,7 @@ export default class Sets extends React.Component {
     });
   }
 
-  showSets(set_num, name, year, url) {
+  showSets(set_num) {
     window.location.href = "/product?set_num="+set_num 
   }
 
@@ -52,9 +52,11 @@ export default class Sets extends React.Component {
         <PageNavbar  />
         <br></br>
         <div className="setTitle">LEGO SETS</div>
-        <div className="setsInfo">
-          <div className="setsContainer">
-            {this.state.sets}
+        <div className="setsInfoContainer">
+          <div className="setsInfo">
+            <div className="setsContainer">
+              {this.state.sets}
+            </div>
           </div>
         </div>
     
