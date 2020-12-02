@@ -16,7 +16,7 @@ export default class SetButton extends React.Component {
 
 	render() {
 		return (
-			<div className="set" id={this.props.id} onClick={this.props.onClick}>
+			<div className="similarSet" id={this.props.id} onClick={this.props.onClick}>
 				<div className="title"> Set: {this.props.name}</div>
 				<div className="year"> Year : {this.props.year}</div>
 				<div className="similarity"> Similarity : {this.props.similarity}</div>

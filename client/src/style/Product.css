@@ -1,13 +1,14 @@
-.setinfo-container {
-  display: block;
+
+.container {
+  display: grid;
   /* margin: 10px 0; */
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
-  /* border-bottom: 1px solid #ddd; */
+  align-items: center;
 }
 
-.setinfo-container .name {
+.container .name {
   margin: 5px 0;
   padding: 10px;
   color: rgb(128, 128, 128);
@@ -16,13 +17,8 @@
   /* box-sizing: border-box; */
 }
 
-.setinfo-container .frame .image {
-  max-width: 500px;
-  object-fit:cover;
-}
-
-.setinfo-container  .year{
-  font-size: 25px;
+.container  .year{
+  font-size: 20px;
   margin: 5px 0;
   padding: 10px;
   color: rgb(128, 128, 128);
@@ -30,16 +26,22 @@
   /* box-sizing: border-box; */
 }
 
-.setinfo-container .frame {
+.container .frame {
   display: table-cell;
   width: 500px;
   height: 500px;
   background: rgb(255, 255, 255);
   margin: auto;
-  padding: 10px 10px;
-  text-align: center;
+  padding: 10px 30px;
   vertical-align: middle;
   bottom: 0px;
+  /* border: black;
+  border-style: solid; */
+}
+
+.container .frame .image {
+  max-width: 500px;
+  object-fit:cover;
 }
 
 .h5 {
@@ -50,47 +52,74 @@
   /* box-sizing: border-box; */
 }
 
-.review-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  flex: 1 0 30%;
-  font-size: 15px;
-  margin: auto;
-  padding: 10px 10px;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-
-.section-container {
-  color: rgb(128, 128, 128);
+.ReviewRow{
   display: block;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  flex: 1 0 30%;
+  text-align: left;
   font-size: 15px;
   margin: auto;
   padding: 10px 10px;
   box-sizing: border-box;
   cursor: pointer;
+  color: rgb(128, 128, 128);
 }
 
-.review-container .ReviewButton:hover {
+
+.ReviewRow  .ReviewButton:hover {
   background-color: #ddd;
   cursor: pointer;
 }
 
-.part-container .frame .image {
-  max-width: 100px;
-  max-height: 100px;
-  object-fit:cover;
+.ReviewRow  .title {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.part-container .frame {
+.ReviewRow  .date {
+  font-size: 12px;
+}
+
+.ReviewRow  .text {
+  font-size: 15px;
+  font-weight: 200;
+  color: rgb(0, 0, 0);
+}
+
+.ReviewRow  .author {
+  font-size: 12px;
+  color: forestgreen;
+  font-weight: 400;
+}
+
+.PartRow{
+  display: table;
+  text-align: left;
+  border-style: solid;
+  max-width: 250px;
+  padding: 6px;
+  vertical-align: bottom;
+}
+
+.PartName{
+  color: rgb(0, 0, 0);
+  font-size: 10px;
+  max-width: 120px;
+  font-weight: 400;
+}
+.Quantity{
+  color: green;
+  font-size: 10px;
+}
+.PartRow .frame .image {
+  max-width: 70px;
+  max-height: 70px;
+  object-fit:cover;
+}
+ 
+.PartRow .frame {
   display: table-cell;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background: rgb(255, 255, 255);
   margin: auto;
   padding: 10px 10px;
@@ -98,42 +127,26 @@
   vertical-align: middle;
   bottom: 0px;
 }
-.part-container .text {
-  font-size: 10px;
+ 
+.PartRow .text {
+  font-size: 9px;
   margin: 5px 0;
   padding: 10px;
   color: rgb(128, 128, 128);
   cursor: pointer;
 }
 
-.part-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  flex: 1 0 30%;
-  font-size: 10px;
-  margin: 2px;
-  padding: 10px 10px;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-.set-container .set .frame .image {
+.similarSet .frame .image {
   max-width: 280px;
   max-height: 280px;
   object-fit:cover;
 }
 
-.set-container .set .name .year{
-  flex: 1 0 20%;
-  margin: 5px 0;
-  padding: 10px;
+.similarSet .year{
   color: rgb(128, 128, 128);
-  cursor: pointer;
-  /* box-sizing: border-box; */
 }
 
-.set-container .set .frame {
+.similarSet .frame {
   display: table-cell;
   width: 300px;
   height: 300px;
@@ -145,49 +158,88 @@
   bottom: 0px;
 }
 
-#dropdowncenter{
-  text-align: center;
+.similarSet{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
-#phonenumbers{
-  color:black;
-  background-color:#ffffff;
+.SimilarSetContent .similarSet :hover{
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.PartContent{
+  display: table;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.PartContent .content[data-state="open"] {
+  display: inline-grid;
+  grid-template-columns: 300px 300px 300px 300px;
+  padding-left: 500px;
+  padding-right: 500px;
+}
+
+.SimilarSetContent{
+  display: table;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px;
+  
+}
+
+.SimilarSetContent .content[data-state="open"] {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  padding-left: 500px;
+  padding-right: 500px;
+}
+
+.ReviewContent{
+  display: table;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px;
+
+}
+
+.ReviewContent .content[data-state="open"] {
+  display: block;
+  /* grid-template-columns: auto auto auto auto auto; */
+  padding-left: 500px;
+  padding-right: 500px;
+}
+
+#dropdown{
+  Border: none;
   opacity: 0.8;
   border:none;
-  width:1000px;
-  height:50px;
+  width:100%;
+  height:40px;
 }
 
-#phonenumberscontent{
-  width:700px;
-  color:black;
-  margin:-1px auto;
-  padding:0;
-  background-color: none;
-  margin-bottom: 5px;
-}
-
-/* class for all dropdown buttons*/
-.dropdown {
-position: relative;
-
+.dropdown:hover{
+  background-color: #ddd;
 }
 
 .content {
 display: none;
-
-}
-
-.content[data-state="open"] {
-display: block;
 }
 
 .dropdown:after {
-content: "\01F53D"; /*here you can add any image url / sign you want for arrow down*/
+content: "\01F53D";
 position: absolute;
-right: 15px;
+right: 30px;
+Border: none;
+
 }
 
 .dropdown[data-toggle="on"]:after {
-  content: "\01F53C"; /*here you can add any image url / sign you want for arrow up*/
+  content: "\01F53C"; 
+  Border: none;
 }
+

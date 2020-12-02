@@ -5,8 +5,8 @@ export default class ReviewRow extends React.Component {
 	}
 	render() {
 		return (<div className="PartRow">
-			<div className="text">{this.props.name}</div>
-			<div className="text">{this.props.quantity}</div>
+			<div className="PartName">{this.props.name}</div>
+			<div className="Quantity">X {this.props.quantity}</div>
 			<div class="frame">
 				<img src={this.props.url} alt="centered image" className="image" />
 			</div>

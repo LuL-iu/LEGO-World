@@ -22,7 +22,6 @@ export default class product extends React.Component {
       parts: [],
       similarSets: []
     }
-
   }
 
   // React function that is called when the page load.
@@ -150,51 +149,46 @@ export default class product extends React.Component {
     });
   }
 
-  showSets(set_num, name, year, url) {
-    window.location.href = "/product?set_num="+set_num+"&name="+name +"&year=" + year + "&url=" + url 
+  showSets(set_num) {
+    window.location.href = "/product?set_num="+set_num
   }
 
   render() {    
     return (
       <div className="Product">
         <PageNavbar />
+        <div className="container">
+          {this.state.set}
+        </div>     
 
-        <div className="container setinfo-container">
-          <div className="jumbotron">
-            {this.state.set}
+          <div class = "PartContent">
+            <button id="dropdown" class="dropdown" data-toggle="off">Show All Parts</button>
+            <div id="dropdowncontent" class="content" data-state="closed">
+            {this.state.parts}           
+            </div>
           </div>
-      
-          <div className="jumbotron">
-            <div id = "dropdowncenter">
-              <button id="phonenumbers" class="dropdown" data-toggle="off">Show All Parts</button>
-              <div id="phonenumberscontent" class="content" data-state="closed">
-              <div id = "part-container">
-              {this.state.parts}
-              </div>
-              </div>
+        
+          <div class = "SimilarSetContent">
+            <button id="dropdown" class="dropdown" data-toggle="off">Show Similar Sets</button>
+            <div id="dropdowncontent" class="content" data-state="closed">
+            {this.state.similarSets} 
             </div>
+          </div>
+         
 
-            <br></br>
-            <div id = "dropdowncenter">
-              <button id="phonenumbers" class="dropdown" data-toggle="off">Show Similar Sets</button>
-              <div id="phonenumberscontent" class="content" data-state="closed">
-                <div id = "set-container">
-                  {this.state.similarSets}
-                </div>
-              </div>
-            </div>
-            <br></br>
-        
-        
-            <div id = "dropdowncenter">
-              <button id="phonenumbers" class="dropdown" data-toggle="off">Show All Reviews</button>
-              <div id="phonenumberscontent" class="content" data-state="closed">
+          <div class = "ReviewContent">
+            <button id="dropdown" class="dropdown" data-toggle="off">Show All Reviews</button>
+            <div id="dropdown" class="content" data-state="closed">
               {this.state.reviews}
-              </div>
             </div>
-        </div>            
+          </div>  
+
+          <br></br>
+          <br></br>
+          <br></br>
+ 
       </div>
-    </div>
+ 
     );
   }
 }
