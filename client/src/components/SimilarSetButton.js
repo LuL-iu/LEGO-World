@@ -28,7 +28,7 @@ export default class SetButton extends React.Component {
 					</div>
 				</div>
 				<div class="frame">
-					<img src={this.props.url} alt="image" className="image" />
+					<img src={this.props.url} alt="" className="image" />
 				</div>
 			</div>
 		);

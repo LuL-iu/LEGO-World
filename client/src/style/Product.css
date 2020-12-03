@@ -95,7 +95,6 @@
 .PartRow{
   display: table;
   text-align: left;
-  border-style: solid;
   max-width: 250px;
   padding: 6px;
   vertical-align: bottom;
@@ -225,8 +224,8 @@
   padding-top: 30pt;
   display: inline-grid;
   grid-template-columns: 500px 500px 500px;
-  padding-left: 500px;
-  padding-right: 500px;
+  /* padding-left: 500px;
+  padding-right: 500px; */
 }
 
 .ReviewContent{

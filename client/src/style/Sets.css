@@ -12,8 +12,6 @@
 .setsContainer {
   display: inline-grid;
   grid-template-columns: 500px 500px 500px;
-  padding-left: 500px;
-  padding-right: 500px;
   text-align: center;
   
 }

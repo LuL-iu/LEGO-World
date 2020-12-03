@@ -13,7 +13,7 @@ export default class SetButton extends React.Component {
 				<div className="year"> Year : {this.props.year}</div>
 				<div className="year"> Number Of Parts : {this.props.num_parts}</div>
 				<div class="frame">
-					<img src={this.props.url} alt="centered image" className="image" />
+					<img src={this.props.url} alt="" className="image" />
 				</div>
 			</div>
 		);

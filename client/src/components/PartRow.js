@@ -8,7 +8,7 @@ export default class ReviewRow extends React.Component {
 			<div className="PartName">{this.props.name}</div>
 			<div className="Quantity">X {this.props.quantity}</div>
 			<div class="frame">
-				<img src={this.props.url} alt="centered image" className="image" />
+				<img src={this.props.url} alt="" className="image" />
 			</div>
 		</div>);
 	}
