@@ -1,49 +1,12 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core/styles';
 import { Box, ButtonGroup, Button, Grid, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-
-const useStyles = theme => ({
-    box: {
-        width: "100px",
-        height: "50px"
-    },
-    themeButton: {
-        width: "100%",
-        height: "100%",
-        textAlign: "center",
-        backgroundColor: '#9370DB',
-        fontSize: 10,
-        fontStyle: 'bold',
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        color: '#FFFFFF',
-        '&:hover': {
-            backgroundColor: "#d1cbdc",
-            color: '#FFF'
-        }
-     },
-     button: {
-         width: "100px",
-         height: "25px",
-         fontSize: 10,
-         backgroundColor: "#E6E6FA"
-     },
-});
+import '../style/ThemeCard.css';
 
 
 class ThemeCard extends React.Component {
     constructor(props) {
         super(props);
-
-        /* props looks like:
-		{
-			themeName
-			themeId
-		}
-		*/
         
         this.state = {
             selected: false
@@ -68,16 +31,15 @@ class ThemeCard extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
         return (
-            <Box className={classes.box} onMouseLeave={this.handleMouseLeave}>
+            <Box className="box"  onMouseLeave={this.handleMouseLeave}>
                 {!this.state.selected && 
-                    <Button onClick={this.handleSelectedToggle} className={classes.themeButton}><b>{this.props.themeName}</b></Button>
+                    <div onClick={this.handleSelectedToggle} className="themeButton">{this.props.themeName}</div>
                 }
                 {this.state.selected &&
                     <Grid container>
-                        <Grid item> <Link to={"/sets/"+this.props.themeId}><Button className={classes.button}>View Sets</Button></Link> </Grid>
-                        <Grid item> <Button className={classes.button}>View Minifigs</Button></Grid>
+                        <Grid item> <Link to={"/sets/"+this.props.themeId}><Button className= 'titleButton'>View Sets</Button></Link> </Grid>
+                        <Grid item> <Button className="titleButton">View Minifigs</Button></Grid>
                     </Grid> 
                 } 
             </Box>
@@ -85,4 +47,4 @@ class ThemeCard extends React.Component {
     }
 }
 
-export default withStyles(useStyles)(ThemeCard)
+export default ThemeCard

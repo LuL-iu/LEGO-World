@@ -1,38 +1,22 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Container from "@material-ui/core/Container";
+import '../style/Home.scss';
+import ThemeBlock from './ThemeBlock';
 import ThemeCard from './ThemeCard';
-import Typography from '@material-ui/core/Typography';
-import PageNavbar from './PageNavbar';
-import { withStyles } from '@material-ui/core/styles';
 import { Box, Button, Paper } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-const useStyles = theme => ({
-    heading: {
-        textAlign: "center",
-        color: '#737373'
-     },
-     button: {
-        width: "100%",
-        backgroundColor: "#FCD000",
-        color: "#FFFFFF",
-        '&:hover': {
-            backgroundColor: "#a6a6a6",
-            color: '#FFF'
-        }
-    },
-});
-
-
-class Home extends React.Component {
+export default class Home extends React.Component {
 
     constructor(props) {
         super(props);
-        
         this.state = {
-            themes: []
+            grouped: [],
+            themes: [],
+            themeObj : []
         };
+        this.mapComponent = this.mapComponent.bind(this);
+        this.myFunction = this.myFunction.bind(this);
+
     }
 
     componentDidMount() {
@@ -45,37 +29,102 @@ class Home extends React.Component {
         console.log(err);
         }).then(themes => {
         if (!themes) return;
-        console.log(themes)
-        let themeGridItems = themes.map((theme, i) => {
-            return <Grid item xs={1}> <ThemeCard themeName={theme.name} themeId={theme.id} /> </Grid>;
+        this.state.themes = themes.map((theme, i) => {
+           return {name: theme.name, id: theme.id};
         });
-
-        this.setState({
-            themes: themeGridItems
-        });
-
+        this.groupCard();
+        console.log(this.state.grouped);
+        this.mapComponent();
+        console.log(this.state.themeObj);
         }, err => {
         console.log(err)
         });
     }
+    
+    groupCard(){
+        let wordsArray = this.state.themes;
+        let grouped = wordsArray.reduce(function(acc, curr) {
+       if (acc.hasOwnProperty(curr.name.charAt(0))) {
+            acc[curr.name.charAt(0)].push({name: curr.name, id: curr.id})
+        } else {
+            acc[curr.name.charAt(0)] = [{name: curr.name, id: curr.id}]
+        }
+        return acc;
+        }, {})
+        this.state.grouped = grouped;
+    }
+
+    mapComponent(){
+        var word = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P" , "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+        var j;
+        var themeDivs = [];
+
+        for(j = 0; j < 8; j ++){
+            var array = [];
+            var k;
+            for(k = 0; k < 3; k ++){
+                if(3*j + k >= 24){
+                    continue;
+                }
+                let key = word[3*j + k];
+                console.log(key)
+                if(key == 'K' || key == 'Y'){
+                    continue;
+                }
+                var newIds = this.state.grouped[key];
+                array.push(newIds.map((theme, i) =>{
+                    return (<ThemeCard className = "themeTitle" themeId={theme.id}  themeName={theme.name} />)
+                }))
+                if(3*j + k + 1 == 24){
+                    newIds = this.state.grouped['Z'];
+                    array.push(newIds.map((theme, i) =>{
+                    return (<ThemeCard className = "themeTitle" themeId={theme.id}  themeName={theme.name} />)
+                }))
+                }
+            }
+            let ele =<ThemeBlock className = "theme"  themes = {array}/>
+            themeDivs.push(ele);
+        }
+        // const newIds = this.state.grouped["A"];
+        // console.log(newIds);
+        // let setDivs = newIds.map((theme, i) =>{
+        //     return (<div className = "theme">{theme}</div>)
+        // })
+        this.setState({
+            themeObj: themeDivs
+        });
+        
+    }
+
+    showSets(theme){
+
+    }
+
+    myFunction(item) {
+       this.state.themeObj.push(item);
+    }
 
     render() {
-        const { classes } = this.props;
-        return (
-        <div>
-            <PageNavbar  />            
-            <Container maxWidth="lg">
-                    <Box paddingTop={4}><Typography className={classes.heading} variant="h3" gutterBottom>SELECT A THEME TO START EXPLORING THE WORLD OF LEGO</Typography></Box>
-                    <Grid container spacing={1}>
-                        {this.state.themes}
-                    </Grid>
+        return(
+            <div className ="wholePage">
+                <div>
                     <Box paddingTop={2}>
-                        <Link to={"/minifiggame"}><Button className={classes.button}>PLAY MINIFIG TRIVIA!</Button></Link>
-                    </Box>
-            </Container>            
-        </div>
-        );
+                    <Link to={"/minifiggame"}><Button className= "GameButton">PLAY MINIFIG TRIVIA!</Button></Link>
+                    </Box>    
+                </div>
+                <div className="Home">
+                    
+                    <div className="HomeContainer">
+                        <div className="themeContainer">
+                        {/* <div className = "objContainter"> */}
+                            {this.state.themeObj}
+                        {/* </div>   */}
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        )
     }
 }
 
-export default withStyles(useStyles)(Home)
+// export default withStyles(useStyles)(Home);

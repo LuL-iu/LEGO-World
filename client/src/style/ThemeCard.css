@@ -1,0 +1,36 @@
+.box {
+    /* // width: "100px",
+    // height: "50px" */
+    /* display: block */
+    text-align: left;
+
+}
+
+.themeButton {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    font-size: 12pt;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ }
+
+ .themeButton:hover {
+    color: rgb(224, 224, 224)
+ }
+
+.titleButton {
+    text-align: left;
+    display: flex;
+    height: 15px;
+    font-size: 10;
+    height: 25px;
+ }
+
+ .titleButton :hover {
+    color: rgb(224, 224, 224);
+ }
