@@ -175,14 +175,28 @@ function getSimilarSet(req, res) {
 
 
 function getMinifigs(req, res) {
-  const query = `SELECT M.fig_num, M.name, M.image_url, M.num_parts
+  const query = `
+  SELECT M.fig_num, M.name, M.image_url, M.num_parts
   FROM inventory_minifig Ifig JOIN inventory I ON I.id = Ifig.inventory_id
   JOIN minifig M ON Ifig.fig_num = M.fig_num
   WHERE I.set_num IN 
-  (SELECT set_num
-  FROM sets 
-  WHERE theme_id = '${req.params.themeID}');`
-  
+  (
+    SELECT set_num
+    FROM sets
+    WHERE theme_id = '${req.params.themeID}'
+    OR theme_id IN
+    (SELECT id 
+    FROM theme 
+    WHERE parent_id = '${req.params.themeID}')
+    OR theme_id IN
+    (SELECT id
+    FROM theme
+    WHERE parent_id in
+    (SELECT id
+    FROM theme
+    WHERE parent_id = '${req.params.themeID}'))
+    order by name
+  );`
   connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {
