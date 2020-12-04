@@ -1,90 +1,137 @@
-.Home{
-  text-align: center;
-  display: grid;
-}
-
 .themeContainer {
   border-spacing: 15px;
-  padding-top: 100pt;
+  position: relative;
+  top: 170pt;
+  // border-style: solid;
+  border-width: 1pt;
+  border-color: rgb(218, 218, 218);
+  height: 740px;
   display: table;
   text-align: center;
+  border-radius: 50px;
+  // box-shadow:0 4px 6px 0px rgba(0,0,0,0.25);
+
+  // border-style: solid;
   /* grid-template-columns: 250px 250px 250px 250px 250px 250px 250px 250px  ; */
 }
 
-.HomeContainer{
-  padding-left : 300pt;
-  padding-right : 300pt;
-  display: inline-grid;
-  width: 100%;
-}
 
 .themeContainer .theme { 
   opacity: 1;
   border-spacing: 15px;
   display: table-cell;
   text-align: left;
+  padding-top: 5px;
   cursor: pointer;
+  
+  // border-style: solid;
 
 }
 
 .theme:hover .title{
-  font-size:12pt;
   opacity: 1;
 }
 
 .theme:hover .text-block{
-  filter:brightness(120%);
+  filter:brightness(130%);
   opacity: 1;
-  height: 800px;
+  height: 700px;
   // box-shadow:0 2px 3px 0px rgba(0,0,0,0.25);
   border-radius: 20px;
 }
-
-// .theme .title .themeTitle:hover{
-//   font-weight: 500;
-//   transform:scale(1.15);
-// }
 
 .themeContainer .title {
   opacity: 0;
   text-align: left;
   padding: 10pt;
-  padding-left: 20pt;
-  color: rgb(0, 0, 0);
   font-weight: 300;
   transition: all 0.3s;
   /* box-sizing: border-box; */
 }
 
-.themeContainer{
-  box-sizing: border-box;
-}
 
 .text-block{
-  border-radius: 200px;
+  border-style: solid;
+  border-color: rgb(228, 228, 228);
+  border-width:1.5pt;
+  border-radius: 90px;
   opacity: 1;
   vertical-align: bottom;
   height: 200px;
   box-shadow:0 2px 3px 0px rgba(0,0,0,0.25);
 }
 
+
 .theme:nth-child(1){.text-block {background-color:rgb(213, 28, 28)}}
 .theme:nth-child(2){.text-block {background-color:rgb(235, 163, 29)}}
-.theme:nth-child(3){.text-block {background-color: rgb(230, 230, 23)}}
-.theme:nth-child(4){.text-block {background-color:rgb(109, 199, 109)}}
-.theme:nth-child(5){.text-block{background-color:rgb(39, 211, 137)}}
-.theme:nth-child(6){.text-block{background-color:rgb(59, 154, 194)}}
-.theme:nth-child(7){.text-block{background-color:rgb(47, 65, 154)}}
-.theme:nth-child(8){.text-block {background-color:rgb(105, 58, 93)}}
+.theme:nth-child(3){.text-block {background-color:rgb(109, 199, 109)}}
+.theme:nth-child(4){.text-block{background-color:rgb(39, 211, 137)}}
+.theme:nth-child(5){.text-block{background-color:rgb(59, 154, 194)}}
+.theme:nth-child(6){.text-block{background-color:rgb(47, 65, 154)}}
+.theme:nth-child(7){.text-block {background-color:rgb(105, 58, 93)}}
+.theme:nth-child(8){.text-block {background-color:rgb(223, 132, 170)}}
 
 .wholePage{
   text-align: center;
-  display: table;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  // background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("https://wallpaperaccess.com/full/1155011.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 
 .GameButton{
+  display: table;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  vertical-align: center;
+  top: 180px;
+  border-radius: 8px;
+  width:620px;
+  height: 45px;
+  padding: 3px;
+  box-shadow:0 4px 6px 0px rgba(0,0,0,0.25);
+}
+
+.GameText{
+  color: white;
+  font-size: 20pt;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-style: bold;
+}
+
+.GameButton:hover{
+  background-color: rgb(93, 211, 93);
+}
+.GameButton:hover .GameText{
+  font-weight: 600;
+}
+
+.centerBox{
+  display: inline;
+  text-align: center;
+}
+
+.ButtonContainer{
+  display: flex;
+  // border-style: solid;
+  // justify-content: center;
+}
+
+.instruction{
+  position: relative;
+  top: 230px;
+}
+
+.MainTitle{
   position: fixed;
-  bottom: -4px;
-  right: 10px;
+  top: 20px;
+  text-align: center;
+  font-family: cursive;
+  font-size: 70pt;
 }

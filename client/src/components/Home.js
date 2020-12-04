@@ -58,7 +58,7 @@ export default class Home extends React.Component {
         var word = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P" , "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
         var j;
         var themeDivs = [];
-
+        var category = ["A-C", "D-F", "G-I", "G-L", "M-O", "P-R", "S-U", "V-Z"];
         for(j = 0; j < 8; j ++){
             var array = [];
             var k;
@@ -82,7 +82,7 @@ export default class Home extends React.Component {
                 }))
                 }
             }
-            let ele =<ThemeBlock className = "theme"  themes = {array}/>
+            let ele =<ThemeBlock className = "theme"  themes = {array} category ={category[j]}/>
             themeDivs.push(ele);
         }
         // const newIds = this.state.grouped["A"];
@@ -107,13 +107,11 @@ export default class Home extends React.Component {
     render() {
         return(
             <div className ="wholePage">
-                <div>
-                    <Box paddingTop={2}>
-                    <Link to={"/minifiggame"}><Button className= "GameButton">PLAY MINIFIG TRIVIA!</Button></Link>
-                    </Box>    
-                </div>
-                <div className="Home">
-                    
+                <div className ="centerBox">
+                    <div className= "ButtonContainer">
+                        <Link to={"/minifiggame"}><div className= "GameButton"><div className="GameText">PLAY MINIFIG TRIVIA!</div></div></Link>   
+                    </div>
+                    <div className= "instruction"> Choose A Theme to Start to Explore LEGO</div>
                     <div className="HomeContainer">
                         <div className="themeContainer">
                         {/* <div className = "objContainter"> */}
@@ -121,7 +119,8 @@ export default class Home extends React.Component {
                         {/* </div>   */}
                         </div>
                     </div>
-                    </div>
+                    <div className = "MainTitle">LEGO WORLD</div>
+                </div>
             </div>
         )
     }

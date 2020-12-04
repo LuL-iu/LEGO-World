@@ -8,9 +8,14 @@ export default class ThemeBlock extends React.Component {
 
 	render() {
 		return (
-			<div className="theme" id={this.props.id}>
+			<div className="theme">
+					<p className ='character'>{this.props.character}</p>
+				<div className = 'categoryContainer'>
+				
+					{this.props.category}
+					
+				</div>
 				<div className = 'text-block'>
-					<p className="lego"></p>
 					<p className="title">{this.props.themes}</p>
 				</div>
 			</div>

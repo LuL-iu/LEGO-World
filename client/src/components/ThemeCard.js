@@ -37,10 +37,10 @@ class ThemeCard extends React.Component {
                     <div onClick={this.handleSelectedToggle} className="themeButton">{this.props.themeName}</div>
                 }
                 {this.state.selected &&
-                    <Grid container>
+                    <div container>
                         <Grid item> <Link to={"/sets/"+this.props.themeId}><Button className= 'titleButton'>View Sets</Button></Link> </Grid>
                         <Grid item> <Button className="titleButton">View Minifigs</Button></Grid>
-                    </Grid> 
+                    </div> 
                 } 
             </Box>
         );
