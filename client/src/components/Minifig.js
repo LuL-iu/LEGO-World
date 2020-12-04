@@ -1,16 +1,24 @@
 import PageNavbar from './PageNavbar'
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom'
+
 
 import '../style/Minifig.css'
 
-export default () => {
+export default withRouter((props) => {
 
     const [minifigs, setMinifigs] = useState([])
+    const reqParam = props.location.search.split('=')[1]
+    const [themeID, setthemeID] = useState(reqParam)
 
     useEffect(() => {
         async function fetchData() {
-            let ret = await requestServer()
+            let ret = await requestServer(themeID)
+            if (ret.length > 0) {
+                setMinifigs(ret[0])
+            }
+
 
             let assemled = ret.filter(item => item.image_url !== null).map(item => {
 
@@ -34,10 +42,10 @@ export default () => {
             setMinifigs(assemled)
         }
         fetchData()
-    }, [])
+    }, [themeID])
 
-    async function requestServer(figNum = 'all') {
-        return fetch(`http://localhost:8081/minifig/${figNum}`, { method: 'GET' }).then(res => {
+    async function requestServer(themeID) {
+        return fetch(`http://localhost:8081/minifig/${themeID}`, { method: 'GET' }).then(res => {
             return res.json();
         })
     }
@@ -56,4 +64,4 @@ export default () => {
             </div>
         </div>
     )
-}
+})
