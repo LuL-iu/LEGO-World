@@ -9,16 +9,16 @@
 .linkText {
   text-transform: uppercase;
   color: black;
-  font-size: 14pt;;
+  font-size: 14pt;
+  font-weight: 1000;
 }
 
 .linkText:hover{
   color: rgb(255, 255, 255);
-  font-weight: 500;
 }
 
 .navTitle{
   color: rgb(255, 255, 255);
-  font-weight: 450;
+  font-weight: 1000;
 }
 

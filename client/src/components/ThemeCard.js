@@ -39,7 +39,7 @@ class ThemeCard extends React.Component {
                 {this.state.selected &&
                     <div container>
                         <Grid item> <Link to={"/sets/"+this.props.themeId}><Button className= 'titleButton'>View Sets</Button></Link> </Grid>
-                        <Grid item> <Button className="titleButton">View Minifigs</Button></Grid>
+                        <Grid item> <Link to={"/minifig/"+this.props.themeId}><Button className="titleButton">View Minifigs</Button></Link></Grid>
                     </div> 
                 } 
             </Box>

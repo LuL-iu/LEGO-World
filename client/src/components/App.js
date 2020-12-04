@@ -52,10 +52,8 @@ export default class App extends React.Component {
 						/>
 
 						<Route
-							path="/Minifig"
-							render={() => (
-								<Minifig />
-							)}
+							path='/minifig/:themeId'
+							component={Minifig}
 							
 						/>
 							
