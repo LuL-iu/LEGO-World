@@ -50,7 +50,7 @@ h1 {
 .minifigsContainter {
     padding-top: 30pt;
     display: inline-grid;
-    grid-template-columns: 300px 300px 300px 300px 300px;
+    grid-template-columns: 400px 400px 400px;
 
 }
 
