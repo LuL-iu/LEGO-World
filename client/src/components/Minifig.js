@@ -1,6 +1,6 @@
 import PageNavbar from './PageNavbar'
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { withRouter } from 'react-router-dom'
 
 
@@ -9,17 +9,15 @@ import '../style/Minifig.css'
 export default withRouter((props) => {
 
     const [minifigs, setMinifigs] = useState([])
-    const reqParam = props.location.search.split('=')[1]
-    const [themeID, setthemeID] = useState(reqParam)
+    const params = useParams();
+    const [themeID, setthemeID] = useState(params.themeId);
+
+    
 
     useEffect(() => {
         async function fetchData() {
             let ret = await requestServer(themeID)
-            if (ret.length > 0) {
-                setMinifigs(ret[0])
-            }
-
-
+            console.log(ret);
             let assemled = ret.filter(item => item.image_url !== null).map(item => {
 
                 return (
@@ -45,9 +43,8 @@ export default withRouter((props) => {
     }, [themeID])
 
     async function requestServer(themeID) {
-        return fetch(`http://localhost:8081/minifig/${themeID}`, { method: 'GET' }).then(res => {
-            return res.json();
-        })
+        const res = await fetch(`http://localhost:8081/minifig/theme/${themeID}`, { method: 'GET' });
+        return res.json();
     }
 
     return (
@@ -64,4 +61,5 @@ export default withRouter((props) => {
             </div>
         </div>
     )
+
 })

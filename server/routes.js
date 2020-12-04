@@ -34,6 +34,7 @@ function getMinifigActors(req, res) {
     WHERE image_url IS NOT NULL
     ORDER BY RAND();
   `;
+
   connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {
@@ -174,15 +175,14 @@ function getSimilarSet(req, res) {
 
 
 function getMinifigs(req, res) {
-  const query = `  SELECT M.fig_num, M.name, M.image_url
-FROM inventory_minifig Ifig JOIN inventory I ON I.id = Ifig.inventory_id
-JOIN minifig M ON Ifig.fig_num = M.fig_num
-WHERE I.set_num IN 
-(SELECT set_num
-FROM sets 
-WHERE theme_id = '${req.params.themeID}');`
-
-
+  const query = `SELECT M.fig_num, M.name, M.image_url
+  FROM inventory_minifig Ifig JOIN inventory I ON I.id = Ifig.inventory_id
+  JOIN minifig M ON Ifig.fig_num = M.fig_num
+  WHERE I.set_num IN 
+  (SELECT set_num
+  FROM sets 
+  WHERE theme_id = '${req.params.themeID}');`
+  
   connection.query(query, function (err, rows, fields) {
     if (err) console.log(err);
     else {

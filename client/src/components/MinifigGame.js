@@ -95,12 +95,12 @@ class MinifigGame extends React.Component {
 	}
 
   onMovieSubmit() {
-    console.log("HELDKAFJDIOASFODAJLKDAFJK");
     fetch(`http://localhost:8081/minifig-actor/${this.state.selectedMovie}`,
     {
       method: 'GET' // The type of HTTP request.
     }).then(res => {
       // Convert the response data to a JSON.
+      console.log(res.json());
       return res.json();
     }, err => {
       // Print the error if there is one.
