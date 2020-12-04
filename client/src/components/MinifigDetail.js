@@ -1,7 +1,7 @@
 import PageNavbar from './PageNavbar'
 import React, { useEffect, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom'
-import '../style/Minifig.css'
+import '../style/MinifigDetail.css'
 
 export default withRouter((props) => {
     const reqParam = props.location.search.split('=')[1]
@@ -77,9 +77,9 @@ export default withRouter((props) => {
                     <div className="frame">
                         <img src={minifig.image_url} alt="centered image" className="image" style={{ 'width': '300px', 'height': '300px' }} />
                     </div>
-                    <div className="name" style={{ 'fontSize': '24px' }}>Name: {minifig.name}</div>
+                    <div className="name" style={{ 'fontSize': '20px' }}>Name: {minifig.name}</div>
 
-                    <div className="actor" style={{ 'fontSize': '24px' }}>Actor: {actor.name}</div>
+                    <div className="actor" style={{ 'fontSize': '20px' }}>Actor: {actor.name}</div>
                 </div>
 
                 <div className="detail-container">
