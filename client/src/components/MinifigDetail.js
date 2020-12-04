@@ -1,6 +1,6 @@
 import PageNavbar from './PageNavbar'
 import React, { useEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import '../style/Minifig.css'
 
 export default withRouter((props) => {
@@ -22,6 +22,7 @@ export default withRouter((props) => {
                 setActor(actor[0])
             }
             let set = await querySet(res[0].fig_num)
+            
             if (set.length > 0) {
                 setSet(set[0])
             }
@@ -30,6 +31,8 @@ export default withRouter((props) => {
             if (relative.length > 0) {
                 setRelative(relative)
             }
+            console.log("HELLO");
+            console.log(relative);
 
         }
 
@@ -80,12 +83,14 @@ export default withRouter((props) => {
                 </div>
 
                 <div className="detail-container">
-                    <div className="set-image">
-                        <img src={set.image_url} alt="centered image" className="image" />
-                    </div>
+                    <Link to={"/product?set_num=" + set.set_num}>
+                        <div className="set-image">
+                            <img src={set.image_url} alt="centered image" className="image" />
+                        </div>
+                    </Link>
                     <div className="relative-image">
                         {
-                            relative.filter(item => item.image_url !== null).map(item => <img key={item.fig_num} src={item.image_url}/>)
+                            relative.filter(item => item.image_url !== null).map(item => <Link to={"/detail?fig_num=" + item.fig_num}><div onClick={() => setFigNum(item.fig_num)}><img key={item.fig_num} src={item.image_url}/> </div></Link>)
                         }
                     </div>
                 </div>
