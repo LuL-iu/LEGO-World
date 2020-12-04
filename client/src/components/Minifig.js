@@ -30,10 +30,14 @@ export default withRouter((props) => {
                             <div className="fig-name"> Id : {item.fig_num}</div>
                             <div className="num-parts"> Parts : {item.num_parts}</div>
                             <div className="frame">
+                            
                                 <img src={item.image_url} alt="centered image" className="image" />
+                                
                             </div>
+                        
                         </Link>
                     </div>
+                  
 
                 )
             })
@@ -53,7 +57,7 @@ export default withRouter((props) => {
             <PageNavbar />
 
             <div className="list-wrapper">
-                <h1>All minifigs</h1>
+                <h1>Minifigs in the Theme</h1>
 
                 <div className="list">
                     {minifigs}

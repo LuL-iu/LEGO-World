@@ -85,13 +85,17 @@ export default withRouter((props) => {
                 <div className="detail-container">
                     <Link to={"/product?set_num=" + set.set_num}>
                         <div className="set-image">
+                        
                             <img src={set.image_url} alt="centered image" className="image" />
-                        </div>
+                            </div>
+                       
                     </Link>
                     <div className="relative-image">
+                    <div className="setsContainer">
                         {
                             relative.filter(item => item.image_url !== null).map(item => <Link to={"/detail?fig_num=" + item.fig_num}><div onClick={() => setFigNum(item.fig_num)}><img key={item.fig_num} src={item.image_url}/> </div></Link>)
                         }
+                    </div>
                     </div>
                 </div>
             </div>

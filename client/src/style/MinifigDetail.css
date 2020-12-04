@@ -53,10 +53,6 @@
   /* box-sizing: border-box; */
 }
 
-.setsContainer .year{
-  color: rgb(0, 0, 0);
-  /* box-sizing: border-box; */
-}
 
 .setsContainer .set .frame {
   display: table-cell;
