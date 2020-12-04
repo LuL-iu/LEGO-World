@@ -26,9 +26,7 @@
 .titleButton {
     text-align: left;
     display: flex;
-    height: 15px;
-    font-size: 10;
-    height: 25px;
+    height: 14px;
  }
 
  .titleButton :hover {

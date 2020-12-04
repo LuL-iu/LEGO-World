@@ -111,7 +111,7 @@ export default class Home extends React.Component {
                     <div className= "ButtonContainer">
                         <Link to={"/minifiggame"}><div className= "GameButton"><div className="GameText">PLAY MINIFIG TRIVIA!</div></div></Link>   
                     </div>
-                    <div className= "instruction"> Choose A Theme to Start to Explore LEGO</div>
+                    <div className= "instruction"> Choose A Theme to to Explore LEGO World</div>
                     <div className="HomeContainer">
                         <div className="themeContainer">
                         {/* <div className = "objContainter"> */}
