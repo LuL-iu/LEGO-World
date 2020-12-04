@@ -1,7 +1,7 @@
 import PageNavbar from './PageNavbar'
 import React, { useEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom'
-import '../style/Minifig.css'
+import { Link, withRouter } from 'react-router-dom'
+import '../style/MinifigDetail.css'
 
 export default withRouter((props) => {
     const reqParam = props.location.search.split('=')[1]
@@ -24,6 +24,7 @@ export default withRouter((props) => {
                 setActor(actor[0])
             }
             let set = await querySet(res[0].fig_num)
+            
             if (set.length > 0) {
                 setSet(set[0])
             }
@@ -32,6 +33,8 @@ export default withRouter((props) => {
             if (relative.length > 0) {
                 setRelative(relative)
             }
+            console.log("HELLO");
+            console.log(relative);
 
         }
 
@@ -76,19 +79,25 @@ export default withRouter((props) => {
                     <div className="frame">
                         <img src={minifig.image_url} alt="centered image" className="image" style={{ 'width': '300px', 'height': '300px' }} />
                     </div>
-                    <div className="name" style={{ 'fontSize': '24px' }}>Name: {minifig.name}</div>
+                    <div className="name" style={{ 'fontSize': '20px' }}>Name: {minifig.name}</div>
 
-                    <div className="actor" style={{ 'fontSize': '24px' }}>Actor: {actor.name}</div>
+                    <div className="actor" style={{ 'fontSize': '20px' }}>Actor: {actor.name}</div>
                 </div>
 
                 <div className="detail-container">
-                    <div className="set-image">
-                        <img src={set.image_url} alt="centered image" className="image" />
-                    </div>
+                    <Link to={"/product?set_num=" + set.set_num}>
+                        <div className="set-image">
+                        
+                            <img src={set.image_url} alt="centered image" className="image" />
+                            </div>
+                       
+                    </Link>
                     <div className="relative-image">
+                    <div className="setsContainer">
                         {
-                            relative.filter(item => item.image_url !== null).map(item => <img key={item.fig_num} src={item.image_url}/>)
+                            relative.filter(item => item.image_url !== null).map(item => <Link to={"/detail?fig_num=" + item.fig_num}><div onClick={() => setFigNum(item.fig_num)}><img key={item.fig_num} src={item.image_url}/> </div></Link>)
                         }
+                    </div>
                     </div>
                 </div>
             </div>
