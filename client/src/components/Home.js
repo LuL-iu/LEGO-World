@@ -108,6 +108,7 @@ export default class Home extends React.Component {
         return(
             <div className ="wholePage">
                 <div className ="centerBox">
+                    <div className = "MainTitle">LEGO WORLD</div>
                     <div className= "ButtonContainer">
                         <Link to={"/minifiggame"}><div className= "GameButton"><div className="GameText">PLAY MINIFIG TRIVIA!</div></div></Link>   
                     </div>
@@ -119,7 +120,7 @@ export default class Home extends React.Component {
                         {/* </div>   */}
                         </div>
                     </div>
-                    <div className = "MainTitle">LEGO WORLD</div>
+                    
                 </div>
             </div>
         )
