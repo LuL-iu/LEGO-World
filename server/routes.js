@@ -260,7 +260,7 @@ function getSearchSet(req, res) {
 
 function getSearchMinifig(req, res) {
   var query = `
-    SELECT name, image_url, fig_num
+    SELECT name, image_url, fig_num, num_parts
     FROM minifig
     WHERE name like concat('%','${req.params.text}','%')
     ORDER BY name;
@@ -307,19 +307,6 @@ and I.set_num = '${req.params.set_num}';
     }
   });
 }
-// The exported functions, which can be accessed in index.js.
-// module.exports = {
-//   getMinifigActors: getMinifigActors,
-//   getSets: getSets,
-//   getProductReview: getProductReview,
-//   getAllParts: getAllParts,
-//   getSimilarSet: getSimilarSet,
-//   getMinifigs: getMinifigs,
-//   getMinifigById: getMinifigById,
-//   getActorByFigNum: getActorByFigNum,
-//   querySet: querySet,
-//   queryRelative: queryRelative
-// }
 
 
 // The exported functions, which can be accessed in index.js.

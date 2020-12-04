@@ -47,19 +47,18 @@ export default class Sets extends React.Component {
 
   render() {    
     return (
-      <div className="Sets">
+      <div className="SetsPage">
         <br></br>
         <PageNavbar  />
         <br></br>
-        <div className="setTitle">LEGO SETS</div>
-        <div className="setsInfoContainer">
-          <div className="setsInfo">
-            <div className="setsContainer">
-              {this.state.sets}
-            </div>
-          </div>
-        </div>
-    
+        <div className="container">
+          <div className="setTitle">LEGO SETS</div>   
+          <br></br>  
+          <br></br> 
+          <div className="setsContainer">
+            {this.state.sets}
+          </div>    
+        </div>   
       </div>
     );
   }

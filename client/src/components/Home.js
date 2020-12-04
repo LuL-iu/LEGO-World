@@ -2,7 +2,6 @@ import React from 'react';
 import '../style/Home.scss';
 import ThemeBlock from './ThemeBlock';
 import ThemeCard from './ThemeCard';
-import { Box, Button, Paper } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 export default class Home extends React.Component {

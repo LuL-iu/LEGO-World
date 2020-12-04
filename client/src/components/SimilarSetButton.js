@@ -17,18 +17,16 @@ export default class SetButton extends React.Component {
 	render() {
 		return (
 			<div className="similarSet" id={this.props.id} onClick={this.props.onClick}>
-				<div class = "similarSetText">
-
-						<div className = "setText">
-							<div className="title">{this.props.name}
-							<div className="ssYear">Year : {this.props.year}</div>
-							<div className="similarity">Similarity : {Math.round(this.props.similarity*100)} %</div>
-							<div className="sameParts">Common Parts : {this.props.sameParts}</div>
-						</div>
-					</div>
+				<div className = "setText">
+					<div className="title">{this.props.name}</div>
+					<div className="ssYear">Year : {this.props.year}</div>
+					<div className="similarity">Similarity : {Math.round(this.props.similarity*100)} %</div>
+					<div className="sameParts">Common Parts : {this.props.sameParts}</div>
 				</div>
-				<div class="frame">
-					<img src={this.props.url} alt="" className="image" />
+				<div className="bottomPart">
+					<div class="frame">
+						<img src={this.props.url} alt="" className="image" />
+					</div>	
 				</div>
 			</div>
 		);

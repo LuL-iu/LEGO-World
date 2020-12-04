@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 export default class SetButton extends React.Component {
 	constructor(props) {
@@ -17,11 +18,18 @@ export default class SetButton extends React.Component {
 	render() {
 		return (
 			<div className="minifigbtn" id={this.props.id} onClick={this.props.onClick}>
-				<div className="title"> Set: {this.props.name}</div>
-				<div className="number_of_parts"> Number of Parts: {this.props.num_parts}</div>
+				 <Link to={{
+                            pathname: '/detail',
+                            search: '?fig_num=' + this.props.fig_num,
+                            state: { figNum: this.props.fig_num }
+                        }}>
+				<div className="title">{this.props.name}</div>
+				<div className="year"> Number of Parts: {this.props.num_parts}</div>
 				<div class="frame">
-					<img src={this.props.url} alt="centered image" className="image" />
+					<img src={this.props.url} alt="" className="image" url = {this.props.image_url}/>
 				</div>
+				</Link>
+			
 			</div>
 		);
 	}

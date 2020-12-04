@@ -35,7 +35,7 @@
 .theme:hover .text-block{
   filter:brightness(130%);
   opacity: 1;
-  height: 700px;
+  height: 650px;
   // box-shadow:0 2px 3px 0px rgba(0,0,0,0.25);
   border-radius: 20px;
 }
@@ -120,7 +120,7 @@
 .ButtonContainer{
   display: flex;
   // border-style: solid;
-  // justify-content: center;
+  justify-content: center;
 }
 
 .instruction{
@@ -131,7 +131,7 @@
 .MainTitle{
   position: relative;
   top: 60px;
-  text-align: left;
+  text-align: center;
   font-size: 70pt;
   font-weight: 750;
 }

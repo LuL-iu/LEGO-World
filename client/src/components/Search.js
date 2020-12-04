@@ -6,6 +6,7 @@ import SetButton from './SetButton';
 import MinifigButton from './MinifigButton';
 
 
+
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +38,7 @@ export default class Search extends React.Component {
     }).then(objList => {
       if (!objList) return;
       let objDivs = objList.map((setObj, i) =>
-      <SetButton id={"button-" + setObj.name} onClick={() => this.showSet(setObj.set_num)} name ={setObj.name} year={setObj.year} url={setObj.image_url}/>
+      <SetButton id={"button-" + setObj.name} onClick={() => this.showSet(setObj.set_num)}  num_parts = {setObj.num_parts}  name ={setObj.name} year={setObj.year} url={setObj.image_url}/>
       );
       this.setState({
         sets: objDivs
@@ -62,7 +63,7 @@ export default class Search extends React.Component {
     }).then(objList => {
       if (!objList) return;
       let objDivs = objList.map((figObj, i) =>
-      <MinifigButton id={"button-" + figObj.name} onClick={() => this.showMiniFig(figObj.num)} name ={figObj.name} url={figObj.image_url}/>
+      <MinifigButton id={"button-" + figObj.name} onClick={() => this.showMiniFig(figObj.num)} num_parts = {figObj.num_parts} fig_num ={figObj.fig_num} name ={figObj.name} url={figObj.image_url}/>
       );
       this.setState({
         miniFigs: objDivs
@@ -73,7 +74,7 @@ export default class Search extends React.Component {
   }
 
   showMiniFig(fig_num) {
-   
+    
   }
   
   render() {    
@@ -85,16 +86,16 @@ export default class Search extends React.Component {
         <br></br>
         <div className="container">
             <div className="h5">Search Result</div>
-            <div className="searchTitle">SETS</div>
-            <div className="sets-container">
+            <div className="searchTitle">Sets</div>
+            <div className="sets-container-search">
               {this.state.sets}
             </div>
             <br></br>
             <div className="searchTitle">Mini Figures</div>
-            <div className="sets-container">
+            <div className="sets-container-search">
               {this.state.miniFigs}
             </div>
-         
+        
         </div>
 
       </div>

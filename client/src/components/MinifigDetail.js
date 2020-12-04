@@ -13,6 +13,8 @@ export default withRouter((props) => {
 
     useEffect(() => {
         async function getData() {
+            console.log(reqParam)
+            console.log(figNum)
             let res = await getMinifigById(figNum)
             if (res.length > 0) {
                 setMiniFig(res[0])

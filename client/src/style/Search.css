@@ -1,7 +1,7 @@
 .container{
   display: table
 }
-.sets-container {
+.sets-container-search {
   text-align: center;
   /* margin: 10px 0; */
   display: flex;
@@ -11,7 +11,7 @@
   /* border-bottom: 1px solid #ddd; */
 }
 
-.sets-container .set {
+.sets-container-search .set {
   display: block;
   flex: 1 0 30%;
   margin-left: auto;
@@ -24,28 +24,13 @@
   /* box-sizing: border-box; */
 }
 
-.sets-container .minifig {
-  display: block;
-  flex: 1 0 30%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-  color: rgb(128, 128, 128);
-  cursor: pointer;
-  bottom: 0px;
-  text-align:  left;
-  /* box-sizing: border-box; */
-}
-.sets-container .set .frame:hover{
+.sets-container-search .frame:hover{
   transform:scale(1.15);
   filter:blur(0px);
   opacity:1;
   box-shadow:0 5px 12px 0px rgba(0,0,0,0.125);
 }
 
-.minifig :hover {
-  background-color: #ddd;
-}
 
  .searchTitle {
   text-align: left;
@@ -61,22 +46,15 @@
 .container .h5{
   font-size: 15pt;
 }
-.sets-container .frame .image {
+
+.sets-container-search .frame .image {
   max-width: 280px;
   max-height: 280px;
   object-fit:cover;
 }
 
-.sets-container .name .year{
-  flex: 1 0 20%;
-  margin: 5px 0;
-  padding: 10px;
-  color: rgb(128, 128, 128);
-  cursor: pointer;
-  /* box-sizing: border-box; */
-}
 
-.sets-container .frame {
+.sets-container-search .frame {
   display: table-cell;
   width: 300px;
   height: 300px;
@@ -88,3 +66,32 @@
   bottom: 0px;
   transition: all 0.2S;
 }
+
+.sets-container-search .minifigbtn{
+  display: block;
+  flex: 1 0 30%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  bottom: 0px;
+  text-align:  left;
+}
+
+.sets-container-search .title {
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  /* box-sizing: border-box; */
+}
+
+.sets-container-search .year {
+  color: rgb(0, 0, 0);
+  /* box-sizing: border-box; */
+}
+
+/*  */
+
+/* .minifigbtn .title{
+  
+} */
