@@ -2,11 +2,11 @@
   
   margin: 5px 0;
   padding: 10px;
-  color: rgb(128, 128, 128);
+  color: rgb(0, 0, 0);
   cursor: pointer;
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
-  font-weight: 15pt;
+  font-weight: 1000;
 }
 
 .setsContainer {
@@ -29,7 +29,6 @@
   display: grid;
   text-align: center;
   padding: 20px;
-  color: rgb(128, 128, 128);
   cursor: pointer;
   
   /* box-sizing: border-box; */
@@ -48,14 +47,14 @@
   object-fit:cover;
 }
 
-.setsContainer .name {
-  
-  color: rgb(128, 128, 128);
+.setsContainer .set .title {
+  color: rgb(0, 0, 0);
+  font-weight: 600;
   /* box-sizing: border-box; */
 }
 
 .setsContainer .year{
-  color: rgb(128, 128, 128);
+  color: rgb(0, 0, 0);
   /* box-sizing: border-box; */
 }
 

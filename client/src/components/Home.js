@@ -58,7 +58,7 @@ export default class Home extends React.Component {
         var word = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P" , "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
         var j;
         var themeDivs = [];
-        var category = ["A-C", "D-F", "G-I", "G-L", "M-O", "P-R", "S-U", "V-Z"];
+        var category = ["A-C", "D-F", "G-I", "J-L", "M-O", "P-R", "S-U", "V-Z"];
         for(j = 0; j < 8; j ++){
             var array = [];
             var k;
@@ -112,7 +112,7 @@ export default class Home extends React.Component {
                     <div className= "ButtonContainer">
                         <Link to={"/minifiggame"}><div className= "GameButton"><div className="GameText">PLAY MINIFIG TRIVIA!</div></div></Link>   
                     </div>
-                    <div className= "instruction"> Choose A Theme to to Explore LEGO World</div>
+                    <div className= "instruction"> Choose A Theme to Explore LEGO World</div>
                     <div className="HomeContainer">
                         <div className="themeContainer">
                         {/* <div className = "objContainter"> */}

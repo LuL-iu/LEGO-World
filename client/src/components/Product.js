@@ -64,7 +64,8 @@ export default class product extends React.Component {
       let setDivs = setList.map((setObj, i) =>
       <div className="set" id={setObj.set_num}>
 				<div className="name">{setObj.name}</div>
-        <div className="year">{setObj.year}</div>
+        <div className="year">Year: {setObj.year}</div>
+        <div className="year">Number of Parts: {setObj.num_parts}</div>
         <div className="frame">
           <img src={setObj.image_url} alt="centered image" className="image" />
         </div>

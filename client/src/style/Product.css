@@ -11,9 +11,10 @@
 .searchContainer .name {
   margin: 5px 0;
   padding: 10px;
-  color: rgb(128, 128, 128);
+  color: rgb(0, 0, 0);
   cursor: pointer;
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: 1000;
   /* box-sizing: border-box; */
 }
 
