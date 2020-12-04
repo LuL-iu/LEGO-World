@@ -9,9 +9,12 @@ export default class SetButton extends React.Component {
 	render() {
 		return (
 			<div className="set" id={this.props.id} onClick={this.props.onClick}>
-				<div className="title">{this.props.name}</div>
-				<div className="year"> Year : {this.props.year}</div>
-				<div className="year"> Number Of Parts :{this.props.num_parts}</div>
+				<div className="setInfo">
+					<div className="title">{this.props.name}</div>
+					<div className="year"> Year : {this.props.year}</div>
+					<div className="year"> Number Of Parts :{this.props.num_parts}</div>
+				</div>
+				
 				<div class="frame">
 					<img src={this.props.url} alt="" className="image" />
 				</div>

@@ -52,9 +52,7 @@ export default class Sets extends React.Component {
         <PageNavbar  />
         <br></br>
         <div className="container">
-          <div className="setTitle">LEGO SETS</div>   
-          <br></br>  
-          <br></br> 
+          <div className="setTitle">LEGO SETS IN THE THEME</div>   
           <div className="setsContainer">
             {this.state.sets}
           </div>    

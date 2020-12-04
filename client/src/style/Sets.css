@@ -2,12 +2,9 @@
   display: table
 }
 .setsContainer{
-  text-align: center;
-  /* margin: 10px 0; */
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
-  justify-content: flex-start;
+  padding-top: 30pt;
+  display: inline-grid;
+  grid-template-columns: 400px 400px 400px;
   /* border-bottom: 1px solid #ddd; */
 }
 
@@ -17,11 +14,10 @@
   flex: 1 0 30%;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
+  padding-bottom: 15px;
   color: rgb(0, 0, 0);
   cursor: pointer;
-  bottom: 0px;
-  text-align:  left;
+  text-align:  center;
   /* box-sizing: border-box; */
 }
 
@@ -68,4 +64,8 @@
 .setsContainer .year {
   color: rgb(0, 0, 0);
   /* box-sizing: border-box; */
+}
+
+.setInfo{
+  padding-bottom: 4px;
 }

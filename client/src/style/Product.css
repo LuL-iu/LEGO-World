@@ -94,19 +94,21 @@
 }
 
 .PartRow{
-  display: table;
+  display: grid;
+  height: 120px;
+  grid-template-columns: 120px 120px ;
   text-align: left;
-  max-width: 250px;
   padding: 6px;
-  vertical-align: bottom;
+  margin: 5px;
+  border-spacing: 20px;
 }
 
 .PartName{
   color: rgb(0, 0, 0);
   font-size: 12px;
-  max-width: 120px;
   font-weight: 400;
 }
+
 .Quantity{
   color: green;
   font-size: 12px;
@@ -130,12 +132,10 @@
   bottom: 0px;
   transition: .2s all; 
 }
- 
-.PartRow .text {
-  font-size: 10px;
-  margin: 5px 0;
-  padding: 10px;
-  cursor: pointer;
+
+.PartText{
+  display: gr;
+  width: 120px;
 }
 
 .PartRow .frame:hover{
@@ -145,31 +145,32 @@
   box-shadow:0 2px 3px 0px rgba(0,0,0,0.125);
 }
 
-.similarSet .ssYear{
-  color: rgb(128, 128, 128);
-}
-
-.similarSet .similarity{
-  color: forestgreen;
-}
-
-.similarSet .sameParts{
-  color: forestgreen;
-}
-
 .similarSet .title{
   color: rgb(0, 0, 0);
   font-size: 12pt;
+  width: 180px;
+  font-weight: 600;
 }
 
 .similarSetText{
-  display: block;
+  display: table;
+  vertical-align: middle;
+  text-align: left;
+}
+.similarSetText li{
+  list-style: none;
+  width: 250px;
+}
+
+.bottomPart{
+  display: table;
+  height: 220px;
 }
 
 .similarSet .frame {
   display: table-cell;
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   background: rgb(255, 255, 255);
   vertical-align: middle;
   box-shadow:0 10px 20px 0px rgba(0,0,0,0.125);
@@ -177,16 +178,19 @@
 }
 
 .similarSet .frame .image {
-  max-width: 220px;
-  max-height: 220px;
-  object-fit:cover;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  padding: 20pt;
 
 }
 
 .similarSet{
-  border-spacing: 20px;
-  display: inline;
-  text-align: center;
+  padding: 15pt;;
+  display: grid;
+  grid-template-columns: 200px 200px ;
+  border-spacing: 30px;
+  text-align: left;
 }
 
 .similarSet .frame:hover{
@@ -197,14 +201,10 @@
   cursor: pointer;
 }
 
-.similarSet .bottomPart{
-  display: inline;
-  text-align: center;
-}
-
 
 .PartContent{
   display: table;
+  justify-content: space-evenly;
   text-align: center;
   width: 100%;
   padding-bottom: 10px;
@@ -213,20 +213,22 @@
 .PartContent .content[data-state="open"] {
   padding-top: 30pt;
   display: inline-grid;
-  grid-template-columns: 400px 400px 400px;
+  grid-template-columns: auto auto auto auto;
 }
 
 .SimilarSetContent{
   display: table;
+  justify-content: space-evenly;
   text-align: center;
   width: 100%;
   padding-bottom: 10px;
+  
 }
 
 .SimilarSetContent .content[data-state="open"] {
   padding-top: 30pt;
   display: inline-grid;
-  grid-template-columns: 400px 400px 400px;
+  grid-template-columns: auto auto auto;
 }
 
 .ReviewContent{

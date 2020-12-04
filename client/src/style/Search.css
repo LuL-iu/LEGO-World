@@ -1,17 +1,15 @@
 .container{
-  display: table
+  display: table;
 }
 .sets-container-search {
-  text-align: center;
-  /* margin: 10px 0; */
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
-  justify-content: flex-start;
+  padding-top: 30pt;
+  display: inline-grid;
+  grid-template-columns: 400px 400px 400px;
   /* border-bottom: 1px solid #ddd; */
 }
 
 .sets-container-search .set {
+  border-spacing: 20px;
   display: block;
   flex: 1 0 30%;
   margin-left: auto;
@@ -20,7 +18,7 @@
   color: rgb(0, 0, 0);
   cursor: pointer;
   bottom: 0px;
-  text-align:  left;
+  text-align:  center;
   /* box-sizing: border-box; */
 }
 
@@ -33,9 +31,10 @@
 
 
  .searchTitle {
-  text-align: left;
+  text-align: center;
   margin: 5px 0;
   padding: 10px;
+  padding-top: 40px;
   font-size: 20pt;
   color: rgb(0, 0, 0);
   cursor: pointer;
@@ -87,11 +86,11 @@
 
 .sets-container-search .year {
   color: rgb(0, 0, 0);
-  /* box-sizing: border-box; */
+
 }
 
-/*  */
-
-/* .minifigbtn .title{
-  
-} */
+.sets-container-search .minifigbtn .frame .image {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit:cover;
+}

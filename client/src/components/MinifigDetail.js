@@ -72,36 +72,43 @@ export default withRouter((props) => {
 
         <div className="minifig-detail">
             <PageNavbar></PageNavbar>
-
+            
             <div className="main-wrapper">
-                <div className="detail-container" style={{ 'textAlign': 'center', 'marginTop': '100px' }}>
+                <div className="title">LEGO MINIFIGURE</div>
+                <div className="sub-title">{minifig.name}</div>
+                <div className="main-figure-container">
 
-                    <div className="frame">
-                        <img src={minifig.image_url} alt="centered image" className="image" style={{ 'width': '300px', 'height': '300px' }} />
+                    <div className="setframe">
+                        <img src={minifig.image_url} alt="" className="image" />
                     </div>
-                    <div className="name" style={{ 'fontSize': '20px' }}>Name: {minifig.name}</div>
-
-                    <div className="actor" style={{ 'fontSize': '20px' }}>Actor: {actor.name}</div>
+                    <div className="num-parts">Number of Parts: {minifig.num_parts}</div>
+                   
                 </div>
-
-                <div className="detail-container">
+                <br></br>
+                <div className="sub-title">Minifigure in Set</div>
+                <div className ="detail-set">
                     <Link to={"/product?set_num=" + set.set_num}>
-                        <div className="set-image">
-                        
-                            <img src={set.image_url} alt="centered image" className="image" />
-                            </div>
-                       
-                    </Link>
-                    <div className="relative-image">
-                    <div className="setsContainer">
-                        {
-                            relative.filter(item => item.image_url !== null).map(item => <Link to={"/detail?fig_num=" + item.fig_num}><div onClick={() => setFigNum(item.fig_num)}><img key={item.fig_num} src={item.image_url}/> </div></Link>)
-                        }
-                    </div>
-                    </div>
+                        <div className="set-image-frame">
+                            <img src={set.image_url} alt="" className="image" />
+                        </div>
+                    </Link> 
+                    <div className ="otherSetName"> {set.name} </div>
+                </div>
+                <div className="sub-title">Find All Minifigures in The Set</div>
+                <div className="relative-image">
+                    {relative.filter(item => item.image_url !== null).map(item =>
+                        <div className="otherfigures">
+                            <Link to={"/detail?set_num=" + item.fig_num}>
+                                <div className = "otherFigureframe" onClick={() => setFigNum(item.fig_num)}>
+                                    <img key={item.fig_num} src={item.image_url}/> 
+                                    
+                                </div>
+                                </Link>
+                                <div className ="otherFigureName"> {item.name} </div>
+                        </div> )   
+                    }
                 </div>
             </div>
-
         </div>
     )
 })

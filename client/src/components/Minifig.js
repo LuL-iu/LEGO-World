@@ -22,17 +22,16 @@ export default withRouter((props) => {
 
                 return (
                     <div key={item.fig_num} className="each">
+                        <div className="fig-name"> {item.name}</div>
+                        <div className="num-parts"> Parts : {item.num_parts}</div>
                         <Link to={{
                             pathname: '/detail',
                             search: '?fig_num=' + item.fig_num,
                             state: { figNum: item.fig_num }
                         }}>
-                            <div className="fig-name"> Id : {item.fig_num}</div>
-                            <div className="num-parts"> Parts : {item.num_parts}</div>
-                            <div className="frame">
                             
-                                <img src={item.image_url} alt="centered image" className="image" />
-                                
+                            <div className="frame">
+                                <img src={item.image_url} alt="" className="image" /> 
                             </div>
                         
                         </Link>
@@ -54,12 +53,13 @@ export default withRouter((props) => {
     return (
 
         <div className="minifig">
+            <br></br>
             <PageNavbar />
-
+            <br></br>
             <div className="list-wrapper">
-                <h1>Minifigs in the Theme</h1>
+            <div className="figureTitle">LEGO MINIFIGURES IN THE THEME</div>   
 
-                <div className="list">
+                <div className="minifigsContainter">
                     {minifigs}
                 </div>
             </div>

@@ -86,12 +86,13 @@ export default class Search extends React.Component {
         <br></br>
         <div className="container">
             <div className="h5">Search Result</div>
-            <div className="searchTitle">Sets</div>
+            <div className="searchTitle">SETS</div>
             <div className="sets-container-search">
               {this.state.sets}
             </div>
             <br></br>
-            <div className="searchTitle">Mini Figures</div>
+            
+            <div className="searchTitle">MINI FIGURES</div>
             <div className="sets-container-search">
               {this.state.miniFigs}
             </div>
