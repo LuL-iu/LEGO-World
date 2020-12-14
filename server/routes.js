@@ -156,7 +156,7 @@ function getSimilarSet(req, res) {
     FROM selectPart),
     
     similarSet AS(
-    SELECT I.set_num, ST.total
+    SELECT DISTINCT I.set_num, ST.total
     FROM inventory I JOIN similarTotal ST ON ST.id = I.id)
     
     SELECT S1.name, S1.set_num, S1.year AS year, S1.image_url AS url, SS.total AS sameParts, SS.total/TS.total     AS similarity
