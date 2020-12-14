@@ -43,7 +43,7 @@ function getMinifigActors(req, res) {
 
 function getSets(req, res) {
   var query = `
-    SELECT *
+    SELECT DISTINCT set_num, name, image_url, year
     FROM sets
     WHERE theme_id = '${req.params.themeID}'
     OR theme_id IN
@@ -176,7 +176,7 @@ function getSimilarSet(req, res) {
 
 function getMinifigs(req, res) {
   const query = `
-  SELECT M.fig_num, M.name, M.image_url, M.num_parts
+  SELECT DISTINCT M.fig_num, M.name, M.image_url, M.num_parts
   FROM inventory_minifig Ifig JOIN inventory I ON I.id = Ifig.inventory_id
   JOIN minifig M ON Ifig.fig_num = M.fig_num
   WHERE I.set_num IN 

@@ -67,7 +67,7 @@ export default class product extends React.Component {
         <div className="year">Year: {setObj.year}</div>
         <div className="year">Number of Parts: {setObj.num_parts}</div>
         <div className="frame">
-          <img src={setObj.image_url} alt="centered image" className="image" />
+          <img src={setObj.image_url} alt="" className="image" />
         </div>
 			</div>
       );
