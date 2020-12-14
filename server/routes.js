@@ -90,7 +90,7 @@ function getProductReview(req, res) {
     SELECT rating_overall as overall, review, title, author, date
     FROM  review
     WHERE set_num = '${req.params.set_num}'
-    ORDER BY date;
+    ORDER BY rating_overall;
   `;
 
   connection.query(query, function (err, rows, fields) {
@@ -160,9 +160,8 @@ function getSimilarSet(req, res) {
     WHERE ST.id = I.id
     AND S1.set_num = I.set_num
     AND S1.set_num <> '${req.params.set_num}'
-    AND ST.total/TS.total >= 0.1
     ORDER BY similarity DESC
-    LIMIT 20;    
+    LIMIT 21;    
   `;
 
   connection.query(query, function (err, rows, fields) {
