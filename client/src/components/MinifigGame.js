@@ -65,7 +65,8 @@ class MinifigGame extends React.Component {
       currCharacterOptions: [],
       currImageUrl: "",
       feedback: "",
-      selectedAnswer: ""
+      selectedAnswer: "",
+      done: false
 		};
 
     this.onMovieSubmit = this.onMovieSubmit.bind(this);
@@ -164,6 +165,9 @@ class MinifigGame extends React.Component {
 
   nextImage() {
     let new_index = this.state.minifigActorIndex + 1;
+    if (new_index == this.state.minifigActors.length) {
+      new_index = 0;
+    }
     let new_image_url = this.state.minifigActors[new_index].image_url;
     this.setState({
       minifigActorIndex: new_index,
