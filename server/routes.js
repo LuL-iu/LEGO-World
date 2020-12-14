@@ -153,15 +153,18 @@ function getSimilarSet(req, res) {
     
     totalSelect AS(
     SELECT SUM(q) AS total
-    FROM selectPart)
+    FROM selectPart),
     
-    SELECT DISTINCT S1.name, S1.set_num, S1.year AS year, S1.image_url AS url, ST.total AS sameParts, ST.total/TS.total AS similarity
-    FROM sets S1, totalSelect TS, similarTotal ST, inventory I
-    WHERE ST.id = I.id
-    AND S1.set_num = I.set_num
+    similarSet AS(
+    SELECT I.set_num, ST.total
+    FROM inventory I JOIN similarTotal ST ON ST.id = I.id)
+    
+    SELECT S1.name, S1.set_num, S1.year AS year, S1.image_url AS url, SS.total AS sameParts, SS.total/TS.total     AS similarity
+    FROM sets S1, similarSet SS, totalSelect TS
+    WHERE S1.set_num = SS.set_num
     AND S1.set_num <> '${req.params.set_num}'
     ORDER BY similarity DESC
-    LIMIT 21;    
+    LIMIT 21;  
   `;
 
   connection.query(query, function (err, rows, fields) {
