@@ -43,7 +43,7 @@ function getMinifigActors(req, res) {
 
 function getSets(req, res) {
   var query = `
-    SELECT DISTINCT set_num, name, image_url, year
+    SELECT DISTINCT set_num, name, image_url, year, num_parts
     FROM sets
     WHERE theme_id = '${req.params.themeID}'
     OR theme_id IN
@@ -259,7 +259,7 @@ function getTopLevelThemes(req, res) {
 
 function getSearchSet(req, res) {
   var query = `
-    SELECT name, image_url, set_num, year
+    SELECT name, image_url, set_num, year, num_parts
     FROM sets
     WHERE name like concat('%','${req.params.text}','%')
     ORDER BY name;
