@@ -7,5 +7,3 @@ Instructions to run locally
 - Type "npm start" in both of them
 
 ![](DEMO1.gif)
-![](DEMO2.gif)
-![](DEMO3.gif)
