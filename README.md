@@ -5,3 +5,7 @@ Instructions to run locally
 - Navigate to the server directory in terminal. Type "npm install"
 - Open two terminal windows and have one in the client directory and one in the server directory
 - Type "npm start" in both of them
+
+![](DEMO1.gif)
+![](DEMO2.gif)
+![](DEMO3.gif)
