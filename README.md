@@ -34,5 +34,8 @@ List of features ready
 ### MINI FIGURE PAGE/ (Display selected mini figures)
 ![Image description](Images/single_minifigure.JPG)
 
+### SEARCH PAGE/ (Search set or mini figure by key words)
+![Image description](Images/single_minifigure.JPG)
+
 ### TRIVIAL GAME PAGE/ (Select a theme and guess the character!)
 ![Image description](Images/game.JPG)
