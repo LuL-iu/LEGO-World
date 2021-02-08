@@ -17,16 +17,16 @@ List of features ready
 ![Image description](Images/set.JPG)
 
 ### SET PAGE (Display selected set in LEGO)
-![Image description](Images/Similar Set.JPG)
+![Image description](Images/Single_Set.JPG)
 
 ### SET PAGE/BUILDING PARTS (Display all building parts in current set)
-![Image description](Images/building parts.JPG)
+![Image description](Images/building_parts.JPG)
 
 ### SET PAGE/SIMILAR SETS (Display similar sets)
-![Image description](Images/Similar Set.JPG)
+![Image description](Images/Similar_Set.JPG)
 
 ### SET PAGE/User Reviews (Display user reviews of current set)
-![Image description](Images/User Reviews.JPG)
+![Image description](Images/User_Reviews.JPG)
 
 ### MINI FIGURES PAGE (Display all mini figures in current LEGO theme)
 ![Image description](Images/minifigure.JPG)
