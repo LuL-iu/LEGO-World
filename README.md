@@ -25,7 +25,7 @@ List of features ready
 ### SET PAGE/SIMILAR SETS (Display similar sets)
 ![Image description](Images/Similar_Set.JPG)
 
-### SET PAGE/User Reviews (Display user reviews of current set)
+### SET PAGE/USER REVIEWS (Display user reviews of current set)
 ![Image description](Images/User_Reviews.JPG)
 
 ### MINI FIGURES PAGE (Display all mini figures in current LEGO theme)
