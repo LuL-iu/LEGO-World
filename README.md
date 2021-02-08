@@ -11,4 +11,4 @@ List of features ready
 ## Example
 
 ### MAIN PAGE (Display all themes in LEGO)
-![Image description](https://github.com/cit-591/final-project-summer-2019-lu-yixuan/blob/master/process0.JPG)
+![Image description](Images/main.JPG)
