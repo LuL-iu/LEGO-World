@@ -11,7 +11,7 @@ List of features ready
 ## Example
 
 ### MAIN PAGE (Display all themes in LEGO)
-<img src="Images/main.JPG" alt="drawing" width="200"/>
+<img src="Images/main.JPG" alt="drawing" width="800"/>
 ![Image description]()(Images/main.JPG)
 
 ### SETS PAGE (Display all sets in current LEGO theme)
