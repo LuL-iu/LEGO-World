@@ -12,31 +12,30 @@ List of features ready
 
 ### MAIN PAGE (Display all themes in LEGO)
 <img src="Images/main.JPG" alt="drawing" width="800"/>
-![Image description]()(Images/main.JPG)
 
 ### SETS PAGE (Display all sets in current LEGO theme)
-![Image description](Images/set.JPG)
+<img src="Images/set.JPG" alt="drawing" width="800"/>
 
 ### SET PAGE (Display selected set in LEGO)
-![Image description](Images/Single_Set.JPG)
+<img src="Images/Single_Set.JPG" alt="drawing" width="800"/>
 
 ### SET PAGE/BUILDING PARTS (Display all building parts in current set)
-![Image description](Images/building_parts.JPG)
+<img src="Images/building_parts.JPG" alt="drawing" width="800"/>
 
 ### SET PAGE/SIMILAR SETS (Display similar sets)
-![Image description](Images/Similar_Set.JPG)
+<img src="Images/Similar_Set.JPG" alt="drawing" width="800"/>
 
 ### SET PAGE/USER REVIEWS (Display user reviews of current set)
-![Image description](Images/User_Reviews.JPG)
+<img src="Images/User_Reviews.JPG" alt="drawing" width="800"/>
 
 ### MINI FIGURES PAGE (Display all mini figures in current LEGO theme)
-![Image description](Images/minifigure.JPG)
+<img src="Images/minifigure.JPG" alt="drawing" width="800"/>
 
 ### MINI FIGURE PAGE/ (Display selected mini figures)
-![Image description](Images/single_minifigure.JPG)
+<img src="Images/single_minifigure.JPG" alt="drawing" width="800"/>
 
 ### SEARCH PAGE/ (Search set or mini figure by key words)
-![Image description](Images/super_man.JPG)
+<img src="Images/super_man.JPG" alt="drawing" width="800"/>
 
 ### TRIVIAL GAME PAGE/ (Select a theme and guess the character!)
-![Image description](Images/game.JPG)
+<img src="Images/gam.JPG" alt="drawing" width="800"/>
