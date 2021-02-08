@@ -4,7 +4,7 @@
 List of features ready 
 * Display all themes in LEGO
 * Search LEGO set/mini-figures through theme
-* Display LEGO set information, building module, user reviews
+* Display LEGO set information, building module, similar sets/ user reviews
 * Display mini-figures information and other minifigures in same set
 * Guess LEGO mini-figures characters and movie actors
 
@@ -13,5 +13,26 @@ List of features ready
 ### MAIN PAGE (Display all themes in LEGO)
 ![Image description](Images/main.JPG)
 
-### SET PAGE (Display all sets in LEGO)
+### SETS PAGE (Display all sets in current LEGO theme)
 ![Image description](Images/set.JPG)
+
+### SET PAGE (Display selected set in LEGO)
+![Image description](Images/Similar Set.JPG)
+
+### SET PAGE/BUILDING PARTS (Display all building parts in current set)
+![Image description](Images/building parts.JPG)
+
+### SET PAGE/SIMILAR SETS (Display similar sets)
+![Image description](Images/Similar Set.JPG)
+
+### SET PAGE/User Reviews (Display user reviews of current set)
+![Image description](Images/User Reviews.JPG)
+
+### MINI FIGURES PAGE (Display all mini figures in current LEGO theme)
+![Image description](Images/minifigure.JPG)
+
+### MINI FIGURE PAGE/ (Display selected mini figures)
+![Image description](Images/single minifigure.JPG)
+
+### TRIVIAL GAME PAGE/ (Select a theme and guess the character!)
+![Image description](Images/game.JPG)
