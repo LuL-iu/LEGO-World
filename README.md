@@ -12,3 +12,6 @@ List of features ready
 
 ### MAIN PAGE (Display all themes in LEGO)
 ![Image description](Images/main.JPG)
+
+### SET PAGE (Display all sets in LEGO)
+![Image description](Images/set.JPG)
