@@ -35,7 +35,7 @@ List of features ready
 ![Image description](Images/single_minifigure.JPG)
 
 ### SEARCH PAGE/ (Search set or mini figure by key words)
-![Image description](Images/single_minifigure.JPG)
+![Image description](Images/super_man.JPG)
 
 ### TRIVIAL GAME PAGE/ (Select a theme and guess the character!)
 ![Image description](Images/game.JPG)
