@@ -35,7 +35,7 @@ List of features ready
 <img src="Images/single_minifigure.JPG" alt="drawing" width="800"/>
 
 ### SEARCH PAGE/ (Search set or mini figure by key words)
-<img src="Images/super_man.JPG" alt="drawing" width="800"/>
+<img src="Images/super_man.JPG" alt="drawing" width="1200"/>
 
 ### TRIVIAL GAME PAGE/ (Select a theme and guess the character!)
-<img src="Images/gam.JPG" alt="drawing" width="800"/>
+<img src="Images/game.JPG" alt="drawing" width="800"/>
