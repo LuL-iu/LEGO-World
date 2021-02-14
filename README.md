@@ -1,7 +1,7 @@
 # LegoWorld
 
 ## Features
-List of features ready 
+List of features 
 * Display all themes in LEGO
 * Search LEGO set/mini-figures through theme
 * Display LEGO set information, building module, similar sets/ user reviews
