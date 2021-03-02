@@ -38,4 +38,4 @@ List of features
 <img src="Images/super_man.JPG" alt="drawing" width="1200"/>
 
 ### TRIVIAL GAME PAGE/ (Select a theme and guess the character!)
-<img src="Images/game.JPG" alt="drawing" width="800"/>
+<img src="Images/game.JPG" alt="drawing" width="600"/>
