@@ -4,7 +4,7 @@
 List of features 
 * Display all themes in LEGO
 * Search LEGO set/mini-figures through theme
-* Display LEGO set information, building module, similar sets/ user reviews
+* Display LEGO set information, building module, user reviews, recommend similar sets
 * Display mini-figures information and other minifigures in same set
 * Guess LEGO mini-figures characters and movie actors
 
