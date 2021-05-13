@@ -8,6 +8,9 @@ List of features
 * Display mini-figures information and other minifigures in same set
 * Guess LEGO mini-figures characters and movie actors
 
+## Link
+[https://www.youtube.com/watch?v=mPVcw8DMrOA]
+
 ## Example
 
 ### MAIN PAGE (Display all themes in LEGO)
