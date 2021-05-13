@@ -9,7 +9,7 @@ List of features
 * Guess LEGO mini-figures characters and movie actors
 
 ## Link
-[https://www.youtube.com/watch?v=mPVcw8DMrOA]
+[Link to Demo](https://www.youtube.com/watch?v=mPVcw8DMrOA)
 
 ## Example
 
